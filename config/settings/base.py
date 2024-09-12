@@ -59,13 +59,22 @@ DATABASE_ROUTERS = (
 # Function to dynamically add a tenant database to DATABASES
 def add_tenant_database(tenant_schema_name):
     DATABASES[tenant_schema_name] = {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": get_database_config(tenant_schema_name)["ENGINE"],
         "NAME": tenant_schema_name,  # The dynamically created tenant database name
         "USER": get_database_config(tenant_schema_name)["USER"],
         "PASSWORD": get_database_config(tenant_schema_name)["PASSWORD"],
         "HOST": get_database_config(tenant_schema_name)["HOST"],
         "PORT": get_database_config(tenant_schema_name)["PORT"],
         "ATOMIC_REQUESTS": True,
+        "TIME_ZONE": TIME_ZONE,  # Add this line
+        "CONN_MAX_AGE": 0,  # Add this line if not present
+        "CONN_HEALTH_CHECKS": env.bool("CONN_HEALTH_CHECKS", False),
+        "OPTIONS": {},
+        "TEST": {},
+        "CHARSET": env.str("CHARSET", "utf8"),
+        "COLLATION": env.str("COLLATION", "utf8_general_ci"),
+        "AUTOCOMMIT": True,  # Explicitly set AUTOCOMMIT to True
+
     }
 
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
