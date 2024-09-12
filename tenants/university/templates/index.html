@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{request.tenant|title}}
+      Website</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  </head>
+
+  <body>
+    <h1>
+      This is the
+      {{request.tenant|title}}
+      template file
+    </h1>
+  </body>
+
+</html>
