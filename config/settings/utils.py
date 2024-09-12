@@ -1,4 +1,10 @@
-from .base import env
+from pathlib import Path
+
+import environ
+
+env = environ.Env()
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
+env.read_env(str(BASE_DIR / ".env"))
 
 
 def get_database_config(tenant_schema_name):

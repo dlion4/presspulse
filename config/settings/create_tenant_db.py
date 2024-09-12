@@ -6,8 +6,9 @@ import psycopg2
 from django.conf import settings
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
+logger = logging.getLogger(__name__)
 
-def format_tenant_schema_name(raw_schema_name):
+def format_tenant_schema_name(raw_schema_name:str)->str:
     """
     Cleans and formats the tenant schema name by:
     - Stripping leading/trailing spaces
@@ -45,9 +46,9 @@ def create_tenant_database(raw_schema_name):
     if not exists:
         # Create the database if it doesn't exist
         cursor.execute(f"CREATE DATABASE {tenant_schema_name}")
-        logging.info(f"Database '{tenant_schema_name}' created successfully.")  # noqa: G004
+        logger.info("Database '%s' created successfully.", tenant_schema_name)
     else:
-        logging.warning(f"Database '{tenant_schema_name}' already exists.")  # noqa: G004
+        logger.warning("Database '%s' already exists.", tenant_schema_name)
 
     cursor.close()
     conn.close()

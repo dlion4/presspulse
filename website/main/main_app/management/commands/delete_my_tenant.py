@@ -1,4 +1,3 @@
-from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
 from config.settings.drop_tenant_db import drop_tenant_database

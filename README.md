@@ -109,12 +109,16 @@ we need a better way to be able to achive this without manually having to create
 
 #### For this to work you need postgres installed on your machine or you can use docker
 
+This will create the schema with a database related to this
+
 ```bash
 ## 1: Creating the tent
-python manage.py create_tenant hospital
+python manage.py create_my_tenant hospital
 ```
+
+This will delete the schema with a database related to it
 
 ```bash
 ## 1: Deleting tenant
-python manage.py delete_tenant hospital
+python manage.py delete_my_tenant hospital
 ```

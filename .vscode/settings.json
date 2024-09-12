@@ -4,6 +4,7 @@
         "authtoken",
         "corsheaders",
         "datname",
+        "futher",
         "gethostname",
         "levelname",
         "MULTITENANT",

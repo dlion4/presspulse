@@ -6,6 +6,8 @@ from pathlib import Path
 import environ
 from django.utils.translation import gettext_lazy as _
 
+from .utils import get_database_config
+
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # presspulse/
 APPS_DIR = BASE_DIR / "presspulse"
@@ -54,6 +56,18 @@ DATABASES["default"]["ATOMIC_REQUESTS"] = True
 DATABASE_ROUTERS = (
     "django_tenants.routers.TenantSyncRouter",
 )
+# Function to dynamically add a tenant database to DATABASES
+def add_tenant_database(tenant_schema_name):
+    DATABASES[tenant_schema_name] = {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": tenant_schema_name,  # The dynamically created tenant database name
+        "USER": get_database_config(tenant_schema_name)["USER"],
+        "PASSWORD": get_database_config(tenant_schema_name)["PASSWORD"],
+        "HOST": get_database_config(tenant_schema_name)["HOST"],
+        "PORT": get_database_config(tenant_schema_name)["PORT"],
+        "ATOMIC_REQUESTS": True,
+    }
+
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -145,6 +159,8 @@ AUTH_PASSWORD_VALIDATORS = [
 MIDDLEWARE = [
     #Add the middleware django_tenants.middleware.main.TenantMainMiddleware to the top of MIDDLEWARE, so that each request can be set to use the correct schema.
     "django_tenants.middleware.main.TenantMainMiddleware",
+    # custom tenant middleware for the databases
+    "website.main.main_app.middleware.TenantConnectionMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",

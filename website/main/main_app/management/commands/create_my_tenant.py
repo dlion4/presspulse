@@ -3,8 +3,8 @@ import logging
 from django.contrib.sites.models import Site
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
-
-from config.settings.create_tenant_db import create_tenant_database
+from config.settings.base import add_tenant_database
+from config.settings.create_tenant_db import create_tenant_database, format_tenant_schema_name
 from website.main.main_app.models import Client
 from website.main.main_app.models import Domain
 
@@ -47,9 +47,15 @@ def create_new_tenant(schema_name:str, domain_name:str):
     tenant.save()
     # 2. Create the tenant database
     create_tenant_database(tenant.schema_name)
-
+    # 3. Add tenant database to Django's DATABASES
+    add_tenant_database(format_tenant_schema_name(tenant.schema_name))
     # 3. Migrate the tenant-specific schema
     call_command("migrate_schemas", schema_name=tenant.schema_name)
+    # also makemigrations and then migrate migrate the entire db
+    call_command(
+        "makemigrations", f"--database={format_tenant_schema_name(tenant.schema_name)}")
+    call_command(
+        "migrate", f"--database={format_tenant_schema_name(tenant.schema_name)}")
 
     # 4. Create the domain for the tenant
     domain = Domain(domain=domain_name, tenant=tenant, is_primary=True)
