@@ -100,22 +100,21 @@ See detailed [cookiecutter-django Heroku documentation](http://cookiecutter-djan
 
 See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
 
-
 # HANDLING THE TENANTS
+
 This will create and delete the tenants with there associated databases
 
-Rem that the schema is being shared but now that the site can scale 
+Rem that the schema is being shared but now that the site can scale
 we need a better way to be able to achive this without manually having to create them by ourselves
-#### For this to work you need postgres installed on your machine or you can use docker 
-## 1: Creating the tent 
 
-`
+#### For this to work you need postgres installed on your machine or you can use docker
+
+```bash
+## 1: Creating the tent
 python manage.py create_tenant hospital
+```
 
-`
-## 2: Deleting the tenant
-
-`
+```bash
+## 1: Deleting tenant
 python manage.py delete_tenant hospital
-
-`
+```
