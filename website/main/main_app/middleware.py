@@ -28,6 +28,9 @@ class TenantConnectionMiddleware:
 
         if tenant:
             # Set the tenant's schema name
+            if tenant.schema_name.lower() == "public":
+                return self.get_response(request)
+
             request.tenant = tenant
             # Use the tenant's schema database for this request
             connections.databases["default"]["NAME"] = format_tenant_schema_name(

@@ -1,0 +1,26 @@
+{
+    "id": 3,
+    "name": "Leo Ramirez",
+    "url": "",
+    "description": "Leo Ramirez is a seasoned News Editor with over a decade of experience in journalism. Known for his editorial expertise and commitment to accuracy, Leo leads teams to deliver high-quality news content.",
+    "link": "https:\/\/foxiz.themeruby.com\/presspulse\/author\/ramirezleo\/",
+    "slug": "ramirezleo",
+    "avatar_urls": {
+        "24": "https:\/\/secure.gravatar.com\/avatar\/e6f6ef967104fe15e79f184ffcd5bc63?s=24&d=mm&r=g",
+        "48": "https:\/\/secure.gravatar.com\/avatar\/e6f6ef967104fe15e79f184ffcd5bc63?s=48&d=mm&r=g",
+        "96": "https:\/\/secure.gravatar.com\/avatar\/e6f6ef967104fe15e79f184ffcd5bc63?s=96&d=mm&r=g"
+    },
+    "meta": [],
+    "_links": {
+        "self": [
+            {
+                "href": "https:\/\/foxiz.themeruby.com\/presspulse\/wp-json\/wp\/v2\/users\/3"
+            }
+        ],
+        "collection": [
+            {
+                "href": "https:\/\/foxiz.themeruby.com\/presspulse\/wp-json\/wp\/v2\/users"
+            }
+        ]
+    }
+}

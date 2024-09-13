@@ -102,17 +102,22 @@ aws_s3_domain = AWS_S3_CUSTOM_DOMAIN or f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws
 # ------------------------
 STORAGES = {
     "default": {
-        "BACKEND": "storages.backends.s3.S3Storage",
+        "BACKEND": "config.settings.storage.TenantS3Boto3Storage",  # Use S3 backend for tenant-aware storage
+        # "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",  # Use S3 backend for tenant-aware storage
         "OPTIONS": {
-            "location": "media",
-            "file_overwrite": False,
+            "file_overwrite": False,  # This prevents overwriting files with the same name
+            "custom_domain": False,  # If you don’t want to use a custom domain for S3  # noqa: RUF003
         },
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",  # Static files storage (local)
     },
 }
+
 MEDIA_URL = f"https://{aws_s3_domain}/media/"
+
+
+
 
 # EMAIL
 # ------------------------------------------------------------------------------

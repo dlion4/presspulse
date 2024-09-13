@@ -1,0 +1,1910 @@
+{% load static i18n compress%}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags for SEO -->
+    <title>{% block title %}Press Purge News Network Company{% endblock title %}</title>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="From politics and technology to entertainment and beyond, we provide real-time coverage you can rely on, making us your dependable source for 24/7 news.">
+    <meta name="keywords" content="news, press, technology, politics, entertainment, breaking news, world news, 24/7 coverage">
+    <meta name="author" content="Press Pulse News Network">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Press Pulse News Network Company">
+    <meta property="og:description" content="Get real-time, dependable news coverage from Press Pulse, your trusted source for 24/7 news.">
+    <meta property="og:image" content="{% static 'images/og-image.jpg' %}">
+    <meta property="og:url" content="{% url 'home' %}">
+    <meta property="og:site_name" content="Press Purge News">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Press Pulse News Network Company">
+    <meta name="twitter:description" content="Your dependable source for real-time coverage across politics, technology, and entertainment.">
+    <meta name="twitter:image" content="{% static 'images/twitter-image.jpg' %}">
+    <meta name="twitter:site" content="@presspulse">
+
+    <!-- Fonts and Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap">
+
+    <!-- RSS Feed and APIs -->
+    <link rel="alternate" type="application/rss+xml" title="Press Pulse &raquo; Feed" href="feed/index.htm">
+    <link rel="alternate" type="application/rss+xml" title="Press Pulse &raquo; Comments Feed" href="comments/feed/index.htm">
+    <link rel="https://api.w.org/" href="wp-json/index.htm">
+
+    <!-- Additional Links for SEO -->
+    <link rel="canonical" href="">
+    <link rel="shortlink" href="">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/2158' %}">
+
+    <!-- Django and Site Information -->
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="{% url 'rsd' %}">
+    <meta name="generator" content="WordPress 6.6.1">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "legalName": "Press Purge",
+        "url": "https://foxiz.themeruby.com/presspurge/",
+        "logo": "{% static 'wp-content/uploads/sites/2/2024/07/default-logo.png' %}"
+      }
+    </script>
+    <script defer="" src="data:text/javascript;base64,CndpbmRvdy5fd3BlbW9qaVNldHRpbmdzID0geyJiYXNlVXJsIjoiaHR0cHM6XC9cL3Mudy5vcmdcL2ltYWdlc1wvY29yZVwvZW1vamlcLzE1LjAuM1wvNzJ4NzJcLyIsImV4dCI6Ii5wbmciLCJzdmdVcmwiOiJodHRwczpcL1wvcy53Lm9yZ1wvaW1hZ2VzXC9jb3JlXC9lbW9qaVwvMTUuMC4zXC9zdmdcLyIsInN2Z0V4dCI6Ii5zdmciLCJzb3VyY2UiOnsiY29uY2F0ZW1vamkiOiJodHRwczpcL1wvZm94aXoudGhlbWVydWJ5LmNvbVwvcHJlc3NwdWxzZVwvd3AtaW5jbHVkZXNcL2pzXC93cC1lbW9qaS1yZWxlYXNlLm1pbi5qcz92ZXI9Ni42LjEifX07Ci8qISBUaGlzIGZpbGUgaXMgYXV0by1nZW5lcmF0ZWQgKi8KIWZ1bmN0aW9uKGksbil7dmFyIG8scyxlO2Z1bmN0aW9uIGMoZSl7dHJ5e3ZhciB0PXtzdXBwb3J0VGVzdHM6ZSx0aW1lc3RhbXA6KG5ldyBEYXRlKS52YWx1ZU9mKCl9O3Nlc3Npb25TdG9yYWdlLnNldEl0ZW0obyxKU09OLnN0cmluZ2lmeSh0KSl9Y2F0Y2goZSl7fX1mdW5jdGlvbiBwKGUsdCxuKXtlLmNsZWFyUmVjdCgwLDAsZS5jYW52YXMud2lkdGgsZS5jYW52YXMuaGVpZ2h0KSxlLmZpbGxUZXh0KHQsMCwwKTt2YXIgdD1uZXcgVWludDMyQXJyYXkoZS5nZXRJbWFnZURhdGEoMCwwLGUuY2FudmFzLndpZHRoLGUuY2FudmFzLmhlaWdodCkuZGF0YSkscj0oZS5jbGVhclJlY3QoMCwwLGUuY2FudmFzLndpZHRoLGUuY2FudmFzLmhlaWdodCksZS5maWxsVGV4dChuLDAsMCksbmV3IFVpbnQzMkFycmF5KGUuZ2V0SW1hZ2VEYXRhKDAsMCxlLmNhbnZhcy53aWR0aCxlLmNhbnZhcy5oZWlnaHQpLmRhdGEpKTtyZXR1cm4gdC5ldmVyeShmdW5jdGlvbihlLHQpe3JldHVybiBlPT09clt0XX0pfWZ1bmN0aW9uIHUoZSx0LG4pe3N3aXRjaCh0KXtjYXNlImZsYWciOnJldHVybiBuKGUsIlx1ZDgzY1x1ZGZmM1x1ZmUwZlx1MjAwZFx1MjZhN1x1ZmUwZiIsIlx1ZDgzY1x1ZGZmM1x1ZmUwZlx1MjAwYlx1MjZhN1x1ZmUwZiIpPyExOiFuKGUsIlx1ZDgzY1x1ZGRmYVx1ZDgzY1x1ZGRmMyIsIlx1ZDgzY1x1ZGRmYVx1MjAwYlx1ZDgzY1x1ZGRmMyIpJiYhbihlLCJcdWQ4M2NcdWRmZjRcdWRiNDBcdWRjNjdcdWRiNDBcdWRjNjJcdWRiNDBcdWRjNjVcdWRiNDBcdWRjNmVcdWRiNDBcdWRjNjdcdWRiNDBcdWRjN2YiLCJcdWQ4M2NcdWRmZjRcdTIwMGJcdWRiNDBcdWRjNjdcdTIwMGJcdWRiNDBcdWRjNjJcdTIwMGJcdWRiNDBcdWRjNjVcdTIwMGJcdWRiNDBcdWRjNmVcdTIwMGJcdWRiNDBcdWRjNjdcdTIwMGJcdWRiNDBcdWRjN2YiKTtjYXNlImVtb2ppIjpyZXR1cm4hbihlLCJcdWQ4M2RcdWRjMjZcdTIwMGRcdTJiMWIiLCJcdWQ4M2RcdWRjMjZcdTIwMGJcdTJiMWIiKX1yZXR1cm4hMX1mdW5jdGlvbiBmKGUsdCxuKXt2YXIgcj0idW5kZWZpbmVkIiE9dHlwZW9mIFdvcmtlckdsb2JhbFNjb3BlJiZzZWxmIGluc3RhbmNlb2YgV29ya2VyR2xvYmFsU2NvcGU/bmV3IE9mZnNjcmVlbkNhbnZhcygzMDAsMTUwKTppLmNyZWF0ZUVsZW1lbnQoImNhbnZhcyIpLGE9ci5nZXRDb250ZXh0KCIyZCIse3dpbGxSZWFkRnJlcXVlbnRseTohMH0pLG89KGEudGV4dEJhc2VsaW5lPSJ0b3AiLGEuZm9udD0iNjAwIDMycHggQXJpYWwiLHt9KTtyZXR1cm4gZS5mb3JFYWNoKGZ1bmN0aW9uKGUpe29bZV09dChhLGUsbil9KSxvfWZ1bmN0aW9uIHQoZSl7dmFyIHQ9aS5jcmVhdGVFbGVtZW50KCJzY3JpcHQiKTt0LnNyYz1lLHQuZGVmZXI9ITAsaS5oZWFkLmFwcGVuZENoaWxkKHQpfSJ1bmRlZmluZWQiIT10eXBlb2YgUHJvbWlzZSYmKG89IndwRW1vamlTZXR0aW5nc1N1cHBvcnRzIixzPVsiZmxhZyIsImVtb2ppIl0sbi5zdXBwb3J0cz17ZXZlcnl0aGluZzohMCxldmVyeXRoaW5nRXhjZXB0RmxhZzohMH0sZT1uZXcgUHJvbWlzZShmdW5jdGlvbihlKXtpLmFkZEV2ZW50TGlzdGVuZXIoIkRPTUNvbnRlbnRMb2FkZWQiLGUse29uY2U6ITB9KX0pLG5ldyBQcm9taXNlKGZ1bmN0aW9uKHQpe3ZhciBuPWZ1bmN0aW9uKCl7dHJ5e3ZhciBlPUpTT04ucGFyc2Uoc2Vzc2lvblN0b3JhZ2UuZ2V0SXRlbShvKSk7aWYoIm9iamVjdCI9PXR5cGVvZiBlJiYibnVtYmVyIj09dHlwZW9mIGUudGltZXN0YW1wJiYobmV3IERhdGUpLnZhbHVlT2YoKTxlLnRpbWVzdGFtcCs2MDQ4MDAmJiJvYmplY3QiPT10eXBlb2YgZS5zdXBwb3J0VGVzdHMpcmV0dXJuIGUuc3VwcG9ydFRlc3RzfWNhdGNoKGUpe31yZXR1cm4gbnVsbH0oKTtpZighbil7aWYoInVuZGVmaW5lZCIhPXR5cGVvZiBXb3JrZXImJiJ1bmRlZmluZWQiIT10eXBlb2YgT2Zmc2NyZWVuQ2FudmFzJiYidW5kZWZpbmVkIiE9dHlwZW9mIFVSTCYmVVJMLmNyZWF0ZU9iamVjdFVSTCYmInVuZGVmaW5lZCIhPXR5cGVvZiBCbG9iKXRyeXt2YXIgZT0icG9zdE1lc3NhZ2UoIitmLnRvU3RyaW5nKCkrIigiK1tKU09OLnN0cmluZ2lmeShzKSx1LnRvU3RyaW5nKCkscC50b1N0cmluZygpXS5qb2luKCIsIikrIikpOyIscj1uZXcgQmxvYihbZV0se3R5cGU6InRleHQvamF2YXNjcmlwdCJ9KSxhPW5ldyBXb3JrZXIoVVJMLmNyZWF0ZU9iamVjdFVSTChyKSx7bmFtZToid3BUZXN0RW1vamlTdXBwb3J0cyJ9KTtyZXR1cm4gdm9pZChhLm9ubWVzc2FnZT1mdW5jdGlvbihlKXtjKG49ZS5kYXRhKSxhLnRlcm1pbmF0ZSgpLHQobil9KX1jYXRjaChlKXt9YyhuPWYocyx1LHApKX10KG4pfSkudGhlbihmdW5jdGlvbihlKXtmb3IodmFyIHQgaW4gZSluLnN1cHBvcnRzW3RdPWVbdF0sbi5zdXBwb3J0cy5ldmVyeXRoaW5nPW4uc3VwcG9ydHMuZXZlcnl0aGluZyYmbi5zdXBwb3J0c1t0XSwiZmxhZyIhPT10JiYobi5zdXBwb3J0cy5ldmVyeXRoaW5nRXhjZXB0RmxhZz1uLnN1cHBvcnRzLmV2ZXJ5dGhpbmdFeGNlcHRGbGFnJiZuLnN1cHBvcnRzW3RdKTtuLnN1cHBvcnRzLmV2ZXJ5dGhpbmdFeGNlcHRGbGFnPW4uc3VwcG9ydHMuZXZlcnl0aGluZ0V4Y2VwdEZsYWcmJiFuLnN1cHBvcnRzLmZsYWcsbi5ET01SZWFkeT0hMSxuLnJlYWR5Q2FsbGJhY2s9ZnVuY3Rpb24oKXtuLkRPTVJlYWR5PSEwfX0pLnRoZW4oZnVuY3Rpb24oKXtyZXR1cm4gZX0pLnRoZW4oZnVuY3Rpb24oKXt2YXIgZTtuLnN1cHBvcnRzLmV2ZXJ5dGhpbmd8fChuLnJlYWR5Q2FsbGJhY2soKSwoZT1uLnNvdXJjZXx8e30pLmNvbmNhdGVtb2ppP3QoZS5jb25jYXRlbW9qaSk6ZS53cGVtb2ppJiZlLnR3ZW1vamkmJih0KGUudHdlbW9qaSksdChlLndwZW1vamkpKSl9KSl9KCh3aW5kb3csZG9jdW1lbnQpLHdpbmRvdy5fd3BlbW9qaVNldHRpbmdzKTsK"></script>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <!-- Scripts -->
+    <script defer="defer" src="{% static 'wp-includes/js/jquery/jquery.min.js' %}?ver=3.7.1" id="jquery-core-js"></script>
+    <script defer="defer" src="{% static 'wp-includes/js/jquery/jquery-migrate.min.js' %}?ver=3.4.1" id="jquery-migrate-js"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://foxiz.themeruby.com/presspulse/#website",
+        "url": "https://foxiz.themeruby.com/presspulse/",
+        "name": "Press Pulse",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://foxiz.themeruby.com/presspulse/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+    <style>
+      .e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+      .e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+        background-image: none !important;
+      }
+
+      @media screen and (max-height: 1024px) {
+
+        .e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+        .e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+          background-image: none !important;
+        }
+      }
+
+      @media screen and (max-height: 640px) {
+
+        .e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+        .e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+          background-image: none !important;
+        }
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+    <meta property="og:title" content="PressPulse Home">
+    <meta property="og:url" content="{% url 'home' %}">
+    <meta property="og:site_name" content="Press Purge">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="{% static 'wp-content/uploads/sites/2/2024/07/default-logo.png' %}">
+    <link rel="icon" href="{% static 'wp-content/uploads/sites/2/2024/07/default-logo.png' %}"/>
+
+    {% block componentCss %}
+    {% endblock componentCss %}
+  </head>
+
+  <body class="{% block bodyClass %}home page-template-default page page-id-2158 wp-embed-responsive personalized-all elementor-default elementor-kit-2685 elementor-page elementor-page-2158 menu-ani-3 hover-ani-6 btn-ani-3 is-rm-simple lmeta-all loader-3 is-hd-rb_template is-backtop none-m-backtop {% endblock bodyClass %}" data-theme="default">
+
+    <script defer="">
+      (function () {
+        let currentMode = null;
+        const darkModeID = 'D_foxiz.themeeruby.com_presspuls';
+        currentMode = navigator.cookieEnabled
+          ? localStorage.getItem(darkModeID) || null
+          : 'default';
+        if (!currentMode) {
+          currentMode = 'default';
+          localStorage.setItem(darkModeID, 'default');
+        }
+        document
+          .body
+          .setAttribute(
+            'data-theme', currentMode === 'dark'
+            ? 'dark'
+            : 'default');
+      })();
+    </script>
+
+    <div class="site-outer">
+      <div id="site-header" class="header-wrap rb-section header-template">
+
+        {% block navbar %}
+          {% include "components/navbar/navbar.html" %}
+        {% endblock navbar%}
+      </div>
+      <div class="site-wrap">
+        <div data-elementor-type="wp-page" data-elementor-id="2158" class="elementor elementor-2158">
+          {% block content %}
+          <div class="elementor-element elementor-element-4ddd54e e-flex e-con-boxed e-con e-parent" data-id="4ddd54e" data-element_type="container">
+            <div class="e-con-inner">
+              <div class="elementor-element elementor-element-8dba05e e-con-full e-flex e-con e-child" data-id="8dba05e" data-element_type="container">
+                <div class="elementor-element elementor-element-4501883 flipped-no elementor-widget elementor-widget-foxiz-list-flex" data-id="4501883" data-element_type="widget" data-widget_type="foxiz-list-flex.default">
+                  <div class="elementor-widget-container">
+                    <div id="uid_4501883" class="block-wrap block-list block-list-flex rb-columns rb-col-1 rb-tcol-1 rb-mcol-1 is-gap-20 hovering-fade p-middle ecat-l-dot meta-s-dot">
+                      <div class="block-inner">
+                        <!-- ajax slider| the content wrapper is for the ajax and was not there initially -->
+                        <div id="content-wrapper" class="content-container">
+                          <div class="p-wrap p-list p-list-2" data-pid="1340">
+                            <div class="list-holder">
+                              <!-- Featured Image and Content -->
+                              <div class="list-feat-holder">
+                                <div class="feat-holder">
+                                  <div class="p-featured">
+                                    <a class="p-flink" href="the-role-of-media-in-modern-politics/index.htm">
+                                      <img fetchpriority="high" decoding="async" width="860" height="484" src="{% static 'wp-content/uploads/sites/2/2024/07/p1-860x484.jpg' %}" class="featured-img wp-post-image" alt="">
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="p-content">
+                                <!-- Category, Title, and Meta -->
+                                <div class="p-categories p-top">
+                                  <a class="p-category category-id-4" href="category/politics/index.htm">Politics</a>
+                                </div>
+                                <h2 class="entry-title">
+                                  <a class="p-url" href="the-role-of-media-in-modern-politics/index.htm">The Role of Media in Modern Politics</a>
+                                </h2>
+                                <p class="entry-summary">Great design seamlessly integrates with the user experience...</p>
+                                <div class="p-meta has-bookmark">
+                                  <div class="meta-inner is-meta">
+                                    <span class="meta-el meta-update">
+                                      <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                                    </span>
+                                  </div>
+                                  <span class="rb-bookmark bookmark-trigger" data-pid="1340"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /ajax slider ends -->
+                        <style>
+                          /* Container */
+                          .content-container {
+                            position: relative;
+                            overflow: hidden;
+                          }
+
+                          /* Default state for the content */
+                          .p-wrap {
+                            transition: opacity 1s ease;
+                            /* Smooth transition */
+                            opacity: 1;
+                            /* Start visible */
+                          }
+
+                          /* Faded out content */
+                          .p-wrap.fade-out {
+                            opacity: 0;
+                            /* Fade out */
+                            pointer-events: none;
+                            /* Disable interaction while faded out */
+                          }
+
+                          .p-wrap.fade-in {
+                            opacity: 1;
+                            /* Fade in */
+                            pointer-events: all;
+                            /* Re-enable interaction when fully visible */
+                          }
+                        </style>
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                        <script>
+                          $(document).ready(function () {
+                            var contentIndex = 0; // Keep track of which content to load
+
+                            // Function to load new content via AJAX and fade
+                            function loadNewContent() {
+                              var currentContent = $('#content-wrapper .p-wrap');
+
+                              // Perform AJAX request to get new content
+                              $.ajax({
+                                url: '{% url "hero-slider" %}', // Django URL to fetch the next content
+                                type: 'GET',
+                                data: {
+                                  index: contentIndex
+                                }, // Pass the current content index
+                                success: function (data) {
+                                  // Fade out the current content
+                                  currentContent.addClass('fade-out');
+                                  // After fade-out transition, update content and fade back in
+                                  setTimeout(function () {
+                                    // Replace the inner HTML of the current content with the new one
+                                    currentContent.html(data.html);
+                                    // Fade in the new content
+                                    currentContent
+                                      .removeClass('fade-out')
+                                      .addClass('fade-in');
+                                  }, 1000); // Match the fade-out duration
+                                },
+                                error: function (xhr, status, error) {
+                                  console.error('Error loading content:', error);
+                                }
+                              });
+                              // Increment the content index for the next request
+                              contentIndex = (contentIndex + 1) % 10; // Assuming 10 items in total
+                            }
+                            // Trigger the content swap every 50 seconds
+                            setInterval(loadNewContent, 60000);
+                          });
+                        </script>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="elementor-element elementor-element-62d82de elementor-widget-tablet__width-inherit elementor-widget elementor-widget-foxiz-list-small-1" data-id="62d82de" data-element_type="widget" data-widget_type="foxiz-list-small-1.default">
+                  <div class="elementor-widget-container">
+                    <div id="uid_62d82de" class="block-wrap block-small block-list block-list-small-1 rb-columns rb-col-4 rb-tcol-2 rb-mcol-1 is-gap-custom bottom-border is-b-border-gray no-last-bb meta-s-dot">
+                      <div class="block-inner">
+                        <div class="p-wrap p-small p-list-small-1" data-pid="149">
+                          <div class="p-content">
+                            <h2 class="entry-title">
+                              <i class="rbi rbi-trending" aria-hidden="true"></i>
+                              <a class="p-url" href="balancing-economic-growth-and-environmental-protection/index.htm" rel="bookmark">
+                                <span class="live-tag"></span>Balancing Economic Growth and Environmental Protection</a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-category meta-bold">
+                                  <a class="meta-separate category-1" href="category/world/index.htm">World</a>
+                                </span>
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T12:32:18+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="149"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-small p-list-small-1" data-pid="1019">
+                          <div class="p-content">
+                            <h2 class="entry-title">
+                              <i class="rbi rbi-trending" aria-hidden="true"></i>
+                              <a class="p-url" href="the-role-of-government-policies-in-environmental-protection/index.htm" rel="bookmark">
+                                The Role of Government Policies in Environmental Protection
+                              </a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-category meta-bold">
+                                  <a class="meta-separate category-6" href="category/environment/index.htm">Environment</a>
+                                </span>
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T12:30:28+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="1019"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-small p-list-small-1" data-pid="1004">
+                          <div class="p-content">
+                            <h2 class="entry-title">
+                              <i class="rbi rbi-trending" aria-hidden="true"></i>
+                              <a class="p-url" href="protecting-endangered-species-and-their-habitats/index.htm" rel="bookmark">
+                                Protecting Endangered Species and Their Habitats
+                              </a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-category meta-bold">
+                                  <a class="meta-separate category-6" href="category/environment/index.htm">Environment</a>
+                                </span>
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T13:09:01+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="1004"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-small p-list-small-1" data-pid="228">
+                          <div class="p-content">
+                            <h2 class="entry-title">
+                              <i class="rbi rbi-trending" aria-hidden="true"></i>
+                              <a class="p-url" href="innovative-solutions-for-reducing-plastic-waste/index.htm" rel="bookmark">Innovative Solutions for Reducing Plastic Waste</a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-category meta-bold">
+                                  <a class="meta-separate category-6" href="category/environment/index.htm">Environment</a>
+                                </span>
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T12:30:28+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="228"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-element-c1d2e40 e-con-full e-flex e-con e-child" data-id="c1d2e40" data-element_type="container">
+                <div class="elementor-element elementor-element-e933ef7 elementor-widget elementor-widget-foxiz-list-small-2" data-id="e933ef7" data-element_type="widget" data-widget_type="foxiz-list-small-2.default">
+                  <div class="elementor-widget-container">
+                    <div id="uid_e933ef7" class="block-wrap block-small block-list block-list-small-2 rb-columns rb-col-1 rb-tcol-2 rb-mcol-1 is-gap-custom hovering-fade bottom-border is-b-border-gray no-last-bb ecat-text is-feat-right meta-s-dot">
+                      <div class="block-inner">
+                        <div class="p-wrap p-small p-list-small-2" data-pid="149">
+                          <div class="feat-holder">
+                            <div class="p-featured ratio-v1">
+                              <a class="p-flink" href="balancing-economic-growth-and-environmental-protection/index.htm" title="Balancing Economic Growth and Environmental Protection">
+                                <img decoding="async" width="150" height="150" src="{% static 'wp-content/uploads/sites/2/2024/07/e1-150x150.jpg' %}" class="featured-img wp-post-image" alt="" loading="eager">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-content">
+                            <div class="p-categories p-top">
+                              <a class="p-category category-id-1" href="category/world/index.htm" rel="category">World</a>
+                            </div>
+                            <h2 class="entry-title">
+                              <a class="p-url" href="balancing-economic-growth-and-environmental-protection/index.htm" rel="bookmark">
+                                <span class="live-tag"></span>Balancing Economic Growth and Environmental Protection</a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T12:32:18+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="149"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-small p-list-small-2" data-pid="1019">
+                          <div class="feat-holder">
+                            <div class="p-featured ratio-v1">
+                              <a class="p-flink" href="the-role-of-government-policies-in-environmental-protection/index.htm" title="The Role of Government Policies in Environmental Protection">
+                                <img decoding="async" width="150" height="150" src="{% static 'wp-content/uploads/sites/2/2024/07/ev6-150x150.jpg' %}" class="featured-img wp-post-image" alt="" loading="eager">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-content">
+                            <div class="p-categories p-top">
+                              <a class="p-category category-id-6" href="category/environment/index.htm" rel="category">Environment</a>
+                            </div>
+                            <h2 class="entry-title">
+                              <a class="p-url" href="the-role-of-government-policies-in-environmental-protection/index.htm" rel="bookmark">The Role of Government Policies in Environmental Protection</a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T12:30:28+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="1019"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-small p-list-small-2" data-pid="1004">
+                          <div class="feat-holder">
+                            <div class="p-featured ratio-v1">
+                              <a class="p-flink" href="protecting-endangered-species-and-their-habitats/index.htm" title="Protecting Endangered Species and Their Habitats">
+                                <img decoding="async" width="150" height="150" src="{% static 'wp-content/uploads/sites/2/2024/07/ev4-150x150.jpg' %}" class="featured-img wp-post-image" alt="" loading="eager">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-content">
+                            <div class="p-categories p-top">
+                              <a class="p-category category-id-6" href="category/environment/index.htm" rel="category">Environment</a>
+                            </div>
+                            <h2 class="entry-title">
+                              <a class="p-url" href="protecting-endangered-species-and-their-habitats/index.htm" rel="bookmark">Protecting Endangered Species and Their Habitats</a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T13:09:01+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="1004"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-small p-list-small-2" data-pid="228">
+                          <div class="feat-holder">
+                            <div class="p-featured ratio-v1">
+                              <a class="p-flink" href="innovative-solutions-for-reducing-plastic-waste/index.htm" title="Innovative Solutions for Reducing Plastic Waste">
+                                <img decoding="async" width="150" height="150" src="{% static 'wp-content/uploads/sites/2/2024/07/ev5-150x150.jpg' %}" class="featured-img wp-post-image" alt="" loading="eager">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-content">
+                            <div class="p-categories p-top">
+                              <a class="p-category category-id-6" href="category/environment/index.htm" rel="category">Environment</a>
+                            </div>
+                            <h2 class="entry-title">
+                              <a class="p-url" href="innovative-solutions-for-reducing-plastic-waste/index.htm" rel="bookmark">Innovative Solutions for Reducing Plastic Waste</a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T12:30:28+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="228"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="elementor-element elementor-element-84706cc e-flex e-con-boxed e-con e-parent" data-id="84706cc" data-element_type="container">
+            <div class="e-con-inner">
+              <div class="elementor-element elementor-element-c6e92bf elementor-widget elementor-widget-foxiz-heading" data-id="c6e92bf" data-element_type="widget" data-widget_type="foxiz-heading.default">
+                <div class="elementor-widget-container">
+                  <div id="uid_c6e92bf" class="block-h heading-layout-10">
+                    <div class="heading-inner">
+                      <h2 class="heading-title">
+                        <a class="h-link" href="category/world/index.htm">World
+                          <i class="rbi rbi-angle-right"></i>
+                        </a>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-element-88cefa4 elementor-widget elementor-widget-foxiz-grid-flex-2" data-id="88cefa4" data-element_type="widget" data-widget_type="foxiz-grid-flex-2.default">
+                <div class="elementor-widget-container">
+                  <div id="uid_88cefa4" class="block-wrap block-grid block-grid-flex-2 rb-columns rb-col-4 rb-tcol-4 is-gap-custom hovering-fade bottom-border is-b-border-gray no-last-bb is-pagi-text ecat-text is-m-list meta-s-dot">
+                    <div class="block-inner">
+                      <div class="p-wrap p-grid p-grid-2" data-pid="149">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="balancing-economic-growth-and-environmental-protection/index.htm" title="Balancing Economic Growth and Environmental Protection">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/e1-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-1" href="category/world/index.htm" rel="category">World</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="balancing-economic-growth-and-environmental-protection/index.htm" rel="bookmark">
+                            <span class="live-tag"></span>Balancing Economic Growth and Environmental Protection</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:32:18+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="149"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="140">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="the-role-of-education-in-shaping-future-leaders/index.htm" title="The Role of Education in Shaping Future Leaders">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/e9-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-1" href="category/world/index.htm" rel="category">World</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="the-role-of-education-in-shaping-future-leaders/index.htm" rel="bookmark">The Role of Education in Shaping Future Leaders</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="140"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="190">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="the-importance-of-free-speech-in-a-digital-age/index.htm" title="The Importance of Free Speech in a Digital Age">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/e4-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-1" href="category/world/index.htm" rel="category">World</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="the-importance-of-free-speech-in-a-digital-age/index.htm" rel="bookmark">The Importance of Free Speech in a Digital Age</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="190"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="225">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="{% url 'home' %}" title="Challenges and Opportunities in Immigration Policy">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/e2-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-1" href="category/world/index.htm" rel="category">World</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="challenges-and-opportunities-in-immigration-policy/index.htm" rel="bookmark">Challenges and Opportunities in Immigration Policy</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="225"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="elementor-element elementor-element-e3c1d79 e-flex e-con-boxed e-con e-parent e-lazyloaded"
+          data-id="e3c1d79" data-element_type="container"
+          
+          >
+            <div class="e-con-inner">
+              <div class="elementor-element elementor-element-2d1b87c elementor-widget__width-initial elementor-widget elementor-widget-foxiz-heading" data-id="2d1b87c" data-element_type="widget" data-widget_type="foxiz-heading.default">
+                <div class="elementor-widget-container">
+                  <div id="uid_2d1b87c" class="block-h heading-layout-19">
+                    <div class="heading-inner">
+                      <h2 class="heading-title">
+                        <span>Find the Perfect Theme for Any Niche at ThemeRuby</span>
+                      </h2>
+                      <div class="heading-tagline h6">
+                        <span class="heading-tagline-label">Themeruby offers beautifully designed WordPress themes to help you create the website of your dreams quickly and easily.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-element-44c9359 elementor-widget elementor-widget-button" data-id="44c9359" data-element_type="widget" data-widget_type="button.default">
+                <div class="elementor-widget-container">
+                  <div class="elementor-button-wrapper">
+                    <a class="elementor-button elementor-button-link elementor-size-sm" href="" target="_blank" rel="nofollow">
+                      <span class="elementor-button-content-wrapper">
+                        <span class="elementor-button-icon">
+                          <svg aria-hidden="true" class="e-font-icon-svg e-fas-long-arrow-alt-right" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path>
+                          </svg>
+                        </span>
+                        <span class="elementor-button-text">Explore Now</span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="elementor-element elementor-element-a89c762 e-flex e-con-boxed e-con e-parent" data-id="a89c762" data-element_type="container">
+            <div class="e-con-inner">
+              <div class="elementor-element elementor-element-952fa18 e-con-full e-flex e-con e-child" data-id="952fa18" data-element_type="container">
+                <div class="elementor-element elementor-element-9193e20 elementor-widget elementor-widget-foxiz-heading" data-id="9193e20" data-element_type="widget" data-widget_type="foxiz-heading.default">
+                  <div class="elementor-widget-container">
+                    <div id="uid_9193e20" class="block-h heading-layout-10">
+                      <div class="heading-inner">
+                        <h2 class="heading-title">
+                          <a class="h-link" href="category/business/index.htm">Business News
+                            <i class="rbi rbi-angle-right"></i>
+                          </a>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="elementor-element elementor-element-35d0f38 elementor-widget elementor-widget-foxiz-grid-flex-2" data-id="35d0f38" data-element_type="widget" data-widget_type="foxiz-grid-flex-2.default">
+                  <div class="elementor-widget-container">
+                    <div id="uid_35d0f38" class="block-wrap block-grid block-grid-flex-2 rb-columns rb-col-1 rb-tcol-1 rb-mcol-1 is-gap-20 hovering-fade ecat-text ecat-size-big meta-s-dot">
+                      <div class="block-inner">
+                        <div class="p-wrap p-grid p-grid-2" data-pid="146">
+                          <h2 class="entry-title">
+                            <a class="p-url" href="the-future-of-remote-work-and-its-impact-on-business/index.htm" rel="bookmark">The Future of Remote Work and Its Impact on Business</a>
+                          </h2>
+                          <div class="p-meta has-bookmark">
+                            <div class="meta-inner is-meta">
+                              <span class="meta-el meta-tag">
+                                <a class="meta-separate" href="tag/renewable-energy/index.htm" rel="tag">Renewable Energy</a>
+                              </span>
+                              <span class="meta-el meta-update">
+                                <time class="updated" datetime="2024-07-23T03:59:13+00:00">July 23, 2024</time>
+                              </span>
+                            </div>
+                            <span class="rb-bookmark bookmark-trigger" data-pid="146"></span>
+                          </div>
+                          <div class="feat-holder">
+                            <div class="p-featured">
+                              <a class="p-flink" href="the-future-of-remote-work-and-its-impact-on-business/index.htm" title="The Future of Remote Work and Its Impact on Business">
+                                <img loading="lazy" decoding="async" width="860" height="573" src="{% static 'wp-content/uploads/sites/2/2024/07/b1-860x573.jpg' %}" class="featured-img wp-post-image" alt="">
+                              </a>
+                            </div>
+                          </div>
+                          <p class="entry-summary">Great design seamlessly integrates with the user experience, making the interaction smooth and intuitive. It's not just about aesthetics; it's about functionality and usability, ensuring users can achieve their goals effortlessly.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-element-e48ad7b e-con-full e-flex e-con e-child" data-id="e48ad7b" data-element_type="container">
+                <div class="elementor-element elementor-element-30d37dc elementor-widget elementor-widget-foxiz-grid-flex-2" data-id="30d37dc" data-element_type="widget" data-widget_type="foxiz-grid-flex-2.default">
+                  <div class="elementor-widget-container">
+                    <div id="uid_30d37dc" class="block-wrap block-grid block-grid-flex-2 rb-columns rb-col-1 rb-tcol-1 rb-mcol-1 is-gap-20 hovering-fade ecat-text ecat-size-big meta-s-dot">
+                      <div class="block-inner">
+                        <div class="p-wrap p-grid p-grid-2" data-pid="23">
+                          <div class="feat-holder">
+                            <div class="p-featured">
+                              <a class="p-flink" href="top-strategies-for-small-business-growth-in-2024/index.htm" title="Top Strategies for Small Business Growth in 2024">
+                                <img loading="lazy" decoding="async" width="860" height="573" src="{% static 'wp-content/uploads/sites/2/2024/07/b2-860x573.jpg' %}" class="featured-img wp-post-image" alt="">
+                              </a>
+                            </div>
+                          </div>
+                          <h2 class="entry-title">
+                            <a class="p-url" href="top-strategies-for-small-business-growth-in-2024/index.htm" rel="bookmark">
+                              <span class="live-tag"></span>Top Strategies for Small Business Growth in 2024</a>
+                          </h2>
+                          <div class="p-meta has-bookmark">
+                            <div class="meta-inner is-meta">
+                              <span class="meta-el meta-update">
+                                <time class="updated" datetime="2024-07-22T12:31:57+00:00">July 22, 2024</time>
+                              </span>
+                            </div>
+                            <span class="rb-bookmark bookmark-trigger" data-pid="23"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-element-dde8cd5 e-con-full e-flex e-con e-child" data-id="dde8cd5" data-element_type="container">
+                <div class="elementor-element elementor-element-3f803e4 elementor-widget elementor-widget-foxiz-list-small-2" data-id="3f803e4" data-element_type="widget" data-widget_type="foxiz-list-small-2.default">
+                  <div class="elementor-widget-container">
+                    <div id="uid_3f803e4" class="block-wrap block-small block-list block-list-small-2 rb-columns rb-col-1 rb-tcol-1 rb-mcol-1 is-gap-custom hovering-fade bottom-border is-b-border-gray no-last-bb ecat-text is-feat-right meta-s-dot">
+                      <div class="block-inner">
+                        <div class="p-wrap p-small p-list-small-2" data-pid="14">
+                          <div class="feat-holder">
+                            <div class="p-featured ratio-v1">
+                              <a class="p-flink" href="navigating-the-global-supply-chain-crisis/index.htm" title="Navigating the Global Supply Chain Crisis">
+                                <img loading="lazy" decoding="async" width="150" height="150" src="{% static 'wp-content/uploads/sites/2/2024/07/b3-150x150.jpg' %}" class="featured-img wp-post-image" alt="">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-content">
+                            <div class="p-categories p-top">
+                              <a class="p-category category-id-3" href="category/business/index.htm" rel="category">Business</a>
+                            </div>
+                            <h2 class="entry-title">
+                              <a class="p-url" href="navigating-the-global-supply-chain-crisis/index.htm" rel="bookmark">Navigating the Global Supply Chain Crisis</a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="14"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-small p-list-small-2" data-pid="62">
+                          <div class="feat-holder">
+                            <div class="p-featured ratio-v1">
+                              <a class="p-flink" href="how-to-build-a-sustainable-business-model/index.htm" title="How to Build a Sustainable Business Model">
+                                <img loading="lazy" decoding="async" width="150" height="150" src="{% static 'wp-content/uploads/sites/2/2024/07/b4-150x150.jpg' %}" class="featured-img wp-post-image" alt="">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-content">
+                            <div class="p-categories p-top">
+                              <a class="p-category category-id-3" href="category/business/index.htm" rel="category">Business</a>
+                            </div>
+                            <h2 class="entry-title">
+                              <a class="p-url" href="how-to-build-a-sustainable-business-model/index.htm" rel="bookmark">How to Build a Sustainable Business Model</a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="62"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-small p-list-small-2" data-pid="126">
+                          <div class="feat-holder">
+                            <div class="p-featured ratio-v1">
+                              <a class="p-flink" href="the-role-of-artificial-intelligence-in-modern-business/index.htm" title="The Role of Artificial Intelligence in Modern Business">
+                                <img loading="lazy" decoding="async" width="150" height="150" src="{% static 'wp-content/uploads/sites/2/2024/07/b5-150x150.jpg' %}" class="featured-img wp-post-image" alt="">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-content">
+                            <div class="p-categories p-top">
+                              <a class="p-category category-id-3" href="category/business/index.htm" rel="category">Business</a>
+                            </div>
+                            <h2 class="entry-title">
+                              <a class="p-url" href="the-role-of-artificial-intelligence-in-modern-business/index.htm" rel="bookmark">The Role of Artificial Intelligence in Modern Business</a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="126"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-small p-list-small-2" data-pid="113">
+                          <div class="feat-holder">
+                            <div class="p-featured ratio-v1">
+                              <a class="p-flink" href="understanding-the-cryptocurrency-market-for-business-owners/index.htm" title="Understanding the Cryptocurrency Market for Business Owners">
+                                <img loading="lazy" decoding="async" width="150" height="150" src="{% static 'wp-content/uploads/sites/2/2024/07/b6-150x150.jpg' %}" class="featured-img wp-post-image" alt="">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-content">
+                            <div class="p-categories p-top">
+                              <a class="p-category category-id-3" href="category/business/index.htm" rel="category">Business</a>
+                            </div>
+                            <h2 class="entry-title">
+                              <a class="p-url" href="understanding-the-cryptocurrency-market-for-business-owners/index.htm" rel="bookmark">Understanding the Cryptocurrency Market for Business Owners</a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="113"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-small p-list-small-2" data-pid="46">
+                          <div class="feat-holder">
+                            <div class="p-featured ratio-v1">
+                              <a class="p-flink" href="exploring-the-benefits-of-business-incubators-and-accelerators/index.htm" title="Exploring the Benefits of Business Incubators and Accelerators">
+                                <img loading="lazy" decoding="async" width="150" height="150" src="{% static 'wp-content/uploads/sites/2/2024/07/b7-150x150.jpg' %}" class="featured-img wp-post-image" alt="">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-content">
+                            <div class="p-categories p-top">
+                              <a class="p-category category-id-3" href="category/business/index.htm" rel="category">Business</a>
+                            </div>
+                            <h2 class="entry-title">
+                              <a class="p-url" href="exploring-the-benefits-of-business-incubators-and-accelerators/index.htm" rel="bookmark">Exploring the Benefits of Business Incubators and Accelerators</a>
+                            </h2>
+                            <div class="p-meta has-bookmark">
+                              <div class="meta-inner is-meta">
+                                <span class="meta-el meta-update">
+                                  <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                                </span>
+                              </div>
+                              <span class="rb-bookmark bookmark-trigger" data-pid="46"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="elementor-element elementor-element-9d4cfd0 e-flex e-con-boxed e-con e-parent" data-id="9d4cfd0" data-element_type="container">
+            <div class="e-con-inner">
+              <div class="elementor-element elementor-element-5ee5005 elementor-widget elementor-widget-foxiz-heading" data-id="5ee5005" data-element_type="widget" data-widget_type="foxiz-heading.default">
+                <div class="elementor-widget-container">
+                  <div id="uid_5ee5005" class="block-h heading-layout-10">
+                    <div class="heading-inner">
+                      <h2 class="heading-title">
+                        <a class="h-link" href="category/technology/index.htm">Technology
+                          <i class="rbi rbi-angle-right"></i>
+                        </a>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="elementor-element elementor-element-50d401c e-flex e-con-boxed e-con e-parent" data-id="50d401c" data-element_type="container">
+            <div class="e-con-inner">
+              <div class="elementor-element elementor-element-314afe7 e-con-full e-flex e-con e-child" data-id="314afe7" data-element_type="container">
+                <div class="elementor-element elementor-element-dc77eb8 elementor-widget elementor-widget-foxiz-cta" data-id="dc77eb8" data-element_type="widget" data-widget_type="foxiz-cta.default">
+                  <div class="elementor-widget-container">
+                    <div class="cta-wrap cta-img-top">
+                      <div class="cta-content">
+                        <h3 class="cta-title">Discover the future today, right here !</h3>
+                        <p class="cta-description rb-text">Your one-stop destination for the latest in phones, laptops, and cutting-edge gadgets. Stay on the pulse of innovation as we unravel the tech universe, offering in-depth reviews, insightful analyses, and expert insights.</p>
+                        <div class="cta-buttons">
+                          <a href="category/technology/index.htm" class="cta-btn cta-btn-1">All in Technology</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="elementor-element elementor-element-033e2bf elementor-widget elementor-widget-foxiz-social-list" data-id="033e2bf" data-element_type="widget" data-widget_type="foxiz-social-list.default">
+                  <div class="elementor-widget-container">
+                    <div class="header-social-list">
+                      <div class="e-social-holder">
+                        <a class="social-link-youtube" aria-label="YouTube" data-title="YouTube" href="#" target="_blank" rel="noopener nofollow">
+                          <i class="rbi rbi-youtube" aria-hidden="true"></i>
+                        </a>
+                        <a class="social-link-google-news" aria-label="Google News" data-title="Google News" href="#" target="_blank" rel="noopener nofollow">
+                          <i class="rbi rbi-gnews" aria-hidden="true"></i>
+                        </a>
+                        <a class="social-link-medium" aria-label="Medium" data-title="Medium" href="#" target="_blank" rel="noopener nofollow">
+                          <i class="rbi rbi-medium" aria-hidden="true"></i>
+                        </a>
+                        <a class="social-link-flipboard" aria-label="flipboard" data-title="Flipboard" href="#" target="_blank" rel="noopener nofollow">
+                          <i class="rbi rbi-flipboard" aria-hidden="true"></i>
+                        </a>
+                        <a class="social-link-rss" aria-label="Rss" data-title="Rss" href="#" target="_blank" rel="noopener nofollow">
+                          <i class="rbi rbi-rss" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-element-b1f7d7a e-con-full e-flex e-con e-child" data-id="b1f7d7a" data-element_type="container">
+                <div class="elementor-element elementor-element-8021a6f flipped-no elementor-widget elementor-widget-foxiz-list-flex" data-id="8021a6f" data-element_type="widget" data-widget_type="foxiz-list-flex.default">
+                  <div class="elementor-widget-container">
+                    <div id="uid_8021a6f" class="block-wrap block-list block-list-flex rb-columns rb-col-1 rb-tcol-1 rb-mcol-1 is-gap-20 hovering-fade p-middle ecat-text ecat-size-big is-feat-left meta-s-dot">
+                      <div class="block-inner">
+                        <div class="p-wrap p-list p-list-2" data-pid="252">
+                          <div class="list-holder">
+                            <div class="list-feat-holder">
+                              <div class="feat-holder">
+                                <div class="p-featured">
+                                  <a class="p-flink" href="exploring-blockchain-technology-beyond-cryptocurrency/index.htm" title="Exploring Blockchain Technology Beyond Cryptocurrency">
+                                    <img loading="lazy" decoding="async" width="615" height="410" src="{% static 'wp-content/uploads/sites/2/2024/07/t4-615x410.jpg' %}" class="featured-img wp-post-image" alt="">
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="p-content">
+                              <div class="p-categories p-top">
+                                <a class="p-category category-id-5" href="category/technology/index.htm" rel="category">Technology</a>
+                              </div>
+                              <h2 class="entry-title">
+                                <a class="p-url" href="exploring-blockchain-technology-beyond-cryptocurrency/index.htm" rel="bookmark">Exploring Blockchain Technology Beyond Cryptocurrency</a>
+                              </h2>
+                              <p class="entry-summary tablet-hide">Great design seamlessly integrates with the user experience, making the interaction smooth and intuitive. It&#039;s not just about aesthetics; it&#039;s about functionality and usability, ensuring users can achieve their goals&hellip;</p>
+                              <div class="p-meta has-bookmark">
+                                <div class="meta-inner is-meta">
+                                  <span class="meta-el meta-update">
+                                    <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                                  </span>
+                                </div>
+                                <span class="rb-bookmark bookmark-trigger" data-pid="252"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="elementor-element elementor-element-56a0281 elementor-widget elementor-widget-foxiz-grid-flex-2" data-id="56a0281" data-element_type="widget" data-widget_type="foxiz-grid-flex-2.default">
+                  <div class="elementor-widget-container">
+                    <div id="uid_56a0281" class="block-wrap block-grid block-grid-flex-2 rb-columns rb-col-4 rb-tcol-4 is-gap-custom hovering-fade bottom-border is-b-border-gray no-last-bb ecat-text is-m-list meta-s-dot">
+                      <div class="block-inner">
+                        <div class="p-wrap p-grid p-grid-2" data-pid="252">
+                          <div class="feat-holder">
+                            <div class="p-featured">
+                              <a class="p-flink" href="exploring-blockchain-technology-beyond-cryptocurrency/index.htm" title="Exploring Blockchain Technology Beyond Cryptocurrency">
+                                <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/t4-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-categories p-top">
+                            <a class="p-category category-id-5" href="category/technology/index.htm" rel="category">Technology</a>
+                          </div>
+                          <h2 class="entry-title">
+                            <a class="p-url" href="exploring-blockchain-technology-beyond-cryptocurrency/index.htm" rel="bookmark">Exploring Blockchain Technology Beyond Cryptocurrency</a>
+                          </h2>
+                          <div class="p-meta has-bookmark">
+                            <div class="meta-inner is-meta">
+                              <span class="meta-el meta-update">
+                                <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                              </span>
+                            </div>
+                            <span class="rb-bookmark bookmark-trigger" data-pid="252"></span>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-grid p-grid-2" data-pid="111">
+                          <div class="feat-holder">
+                            <div class="p-featured">
+                              <a class="p-flink" href="how-5g-will-transform-communication-and-connectivity/index.htm" title="How 5G Will Transform Communication and Connectivity">
+                                <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/t5-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-categories p-top">
+                            <a class="p-category category-id-5" href="category/technology/index.htm" rel="category">Technology</a>
+                          </div>
+                          <h2 class="entry-title">
+                            <a class="p-url" href="how-5g-will-transform-communication-and-connectivity/index.htm" rel="bookmark">How 5G Will Transform Communication and Connectivity</a>
+                          </h2>
+                          <div class="p-meta has-bookmark">
+                            <div class="meta-inner is-meta">
+                              <span class="meta-el meta-update">
+                                <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                              </span>
+                            </div>
+                            <span class="rb-bookmark bookmark-trigger" data-pid="111"></span>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-grid p-grid-2" data-pid="110">
+                          <div class="feat-holder">
+                            <div class="p-featured">
+                              <a class="p-flink" href="the-rise-of-augmented-reality-in-everyday-life/index.htm" title="The Rise of Augmented Reality in Everyday Life">
+                                <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/t1-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-categories p-top">
+                            <a class="p-category category-id-5" href="category/technology/index.htm" rel="category">Technology</a>
+                          </div>
+                          <h2 class="entry-title">
+                            <a class="p-url" href="the-rise-of-augmented-reality-in-everyday-life/index.htm" rel="bookmark">The Rise of Augmented Reality in Everyday Life</a>
+                          </h2>
+                          <div class="p-meta has-bookmark">
+                            <div class="meta-inner is-meta">
+                              <span class="meta-el meta-update">
+                                <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                              </span>
+                            </div>
+                            <span class="rb-bookmark bookmark-trigger" data-pid="110"></span>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-grid p-grid-2" data-pid="56">
+                          <div class="feat-holder">
+                            <div class="p-featured">
+                              <a class="p-flink" href="cybersecurity-threats-and-how-to-protect-your-data/index.htm" title="Cybersecurity Threats and How to Protect Your Data">
+                                <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/t6-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="p-categories p-top">
+                            <a class="p-category category-id-5" href="category/technology/index.htm" rel="category">Technology</a>
+                          </div>
+                          <h2 class="entry-title">
+                            <a class="p-url" href="cybersecurity-threats-and-how-to-protect-your-data/index.htm" rel="bookmark">Cybersecurity Threats and How to Protect Your Data</a>
+                          </h2>
+                          <div class="p-meta has-bookmark">
+                            <div class="meta-inner is-meta">
+                              <span class="meta-el meta-update">
+                                <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                              </span>
+                            </div>
+                            <span class="rb-bookmark bookmark-trigger" data-pid="56"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="elementor-element elementor-element-b1d7a6c e-flex e-con-boxed e-con e-parent" data-id="b1d7a6c" data-element_type="container">
+            <div class="e-con-inner">
+              <div class="elementor-element elementor-element-467c25b elementor-widget elementor-widget-foxiz-ad-image" data-id="467c25b" data-element_type="widget" data-widget_type="foxiz-ad-image.default">
+                <div class="elementor-widget-container">
+                  <div class="ad-wrap ad-image-wrap">
+                    <span class="ad-description is-meta">- Advertisement -</span>
+                    <div class="ad-image">
+                      <a class="ad-destination" target="_blank" rel="noopener nofollow" href=""><img loading="lazy" decoding="async" src="{% static 'wp-content/uploads/sites/2/2024/07/ad.jpg' %}" alt="Ad image" width="970" height="180"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-element-1958d49 elementor-widget elementor-widget-foxiz-heading" data-id="1958d49" data-element_type="widget" data-widget_type="foxiz-heading.default">
+                <div class="elementor-widget-container">
+                  <div id="uid_1958d49" class="block-h heading-layout-10">
+                    <div class="heading-inner">
+                      <h2 class="heading-title">
+                        <a class="h-link" href="category/environment/index.htm">Environment
+                          <i class="rbi rbi-angle-right"></i>
+                        </a>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-element-99af346 elementor-widget elementor-widget-foxiz-grid-flex-2" data-id="99af346" data-element_type="widget" data-widget_type="foxiz-grid-flex-2.default">
+                <div class="elementor-widget-container">
+                  <div id="uid_99af346" class="block-wrap block-grid block-grid-flex-2 rb-columns rb-col-4 rb-tcol-4 is-gap-custom hovering-fade bottom-border is-b-border-gray no-last-bb is-pagi-text ecat-text is-m-list meta-s-dot">
+                    <div class="block-inner">
+                      <div class="p-wrap p-grid p-grid-2" data-pid="243">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="how-to-support-environmental-conservation-efforts/index.htm" title="How to Support Environmental Conservation Efforts">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/e3-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                            <aside class="p-format-overlay format-style-bottom">
+                              <span class="p-format format-video">
+                                <i class="rbi rbi-video" aria-hidden="true"></i>
+                              </span>
+                            </aside>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-6" href="category/environment/index.htm" rel="category">Environment</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="how-to-support-environmental-conservation-efforts/index.htm" rel="bookmark">How to Support Environmental Conservation Efforts</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T13:09:06+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="243"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="1004">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="protecting-endangered-species-and-their-habitats/index.htm" title="Protecting Endangered Species and Their Habitats">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/ev4-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-6" href="category/environment/index.htm" rel="category">Environment</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="protecting-endangered-species-and-their-habitats/index.htm" rel="bookmark">Protecting Endangered Species and Their Habitats</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T13:09:01+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="1004"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="1154">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="understanding-the-effects-of-air-pollution-on-health/index.htm" title="Understanding the Effects of Air Pollution on Health">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/ev2-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-6" href="category/environment/index.htm" rel="category">Environment</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="understanding-the-effects-of-air-pollution-on-health/index.htm" rel="bookmark">
+                            <span class="live-tag"></span>Understanding the Effects of Air Pollution on Health</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:32:14+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="1154"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="981">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="exploring-the-benefits-of-renewable-energy-sources/index.htm" title="Exploring the Benefits of Renewable Energy Sources">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/ev3-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-6" href="category/environment/index.htm" rel="category">Environment</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="exploring-the-benefits-of-renewable-energy-sources/index.htm" rel="bookmark">
+                            <span class="live-tag"></span>Exploring the Benefits of Renewable Energy Sources</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:32:09+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="981"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-element-11edb75 is-divider-0 elementor-widget elementor-widget-foxiz-quick-links" data-id="11edb75" data-element_type="widget" data-widget_type="foxiz-quick-links.default">
+                <div class="elementor-widget-container">
+                  <div id="uid_11edb75" class="block-wrap block-qlinks qlayout-4 res-nowrap qlinks-scroll meta-s-dot">
+                    <ul class="qlinks-inner">
+                      <li class="qlink qlinks-heading">
+                        <div class="qlink-label">#</div>
+                      </li>
+                      <li class="qlink h5">
+                        <a href="tag/opinion/index.htm">Opinion</a>
+                      </li>
+                      <li class="qlink h5">
+                        <a href="tag/education/index.htm">Education</a>
+                      </li>
+                      <li class="qlink h5">
+                        <a href="tag/global-affairs/index.htm">Global Affairs</a>
+                      </li>
+                      <li class="qlink h5">
+                        <a href="tag/featured/index.htm">Featured</a>
+                      </li>
+                      <li class="qlink h5">
+                        <a href="tag/renewable-energy/index.htm">Renewable Energy</a>
+                      </li>
+                      <li class="qlink h5">
+                        <a href="tag/climate-change/index.htm">Climate Change</a>
+                      </li>
+                      <li class="qlink h5">
+                        <a href="tag/hot/index.htm">Hot</a>
+                      </li>
+                      <li class="qlink h5">
+                        <a href="tag/politics/index.htm">Politics</a>
+                      </li>
+                      <li class="qlink h5">
+                        <a href="tag/research/index.htm">Research</a>
+                      </li>
+                      <li class="qlink h5">
+                        <a href="tag/health/index.htm">Health</a>
+                      </li>
+                      <li class="qlink h5">
+                        <a href="tag/markets/index.htm">Markets</a>
+                      </li>
+                      <li class="qlink h5">
+                        <a href="tag/policy-analysis/index.htm">Policy Analysis</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-element-fe7678b elementor-widget elementor-widget-foxiz-heading" data-id="fe7678b" data-element_type="widget" data-widget_type="foxiz-heading.default">
+                <div class="elementor-widget-container">
+                  <div id="uid_fe7678b" class="block-h heading-layout-10">
+                    <div class="heading-inner">
+                      <h2 class="heading-title">
+                        <a class="h-link" href="category/politics/index.htm">Politics
+                          <i class="rbi rbi-angle-right"></i>
+                        </a>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="elementor-element elementor-element-1775757 e-flex e-con-boxed e-con e-parent" data-id="1775757" data-element_type="container">
+            <div class="e-con-inner">
+              <div class="elementor-element elementor-element-f376937 e-con-full e-flex e-con e-child" data-id="f376937" data-element_type="container">
+                <div class="elementor-element elementor-element-2f465b4 elementor-widget-tablet__width-inherit elementor-widget elementor-widget-foxiz-overlay-1" data-id="2f465b4" data-element_type="widget" data-widget_type="foxiz-overlay-1.default">
+                  <div class="elementor-widget-container">
+                    <div id="uid_2f465b4" class="block-wrap block-overlay overlay-1 light-overlay-scheme p-gradient rb-columns rb-col-1 rb-tcol-1 rb-mcol-1 hovering-fade ecat-text ecat-size-big meta-s-dot">
+                      <div class="block-inner">
+                        <div class="p-wrap p-highlight p-overlay-1" data-pid="181">
+                          <div class="overlay-holder">
+                            <div class="p-featured">
+                              <a class="p-flink" href="understanding-the-electoral-college-system/index.htm" title="Understanding the Electoral College System">
+                                <img decoding="async" width="860" height="574" src="{% static 'wp-content/uploads/sites/2/2024/07/p2-860x574.jpg' %}" class="featured-img wp-post-image" alt="" loading="eager">
+                              </a>
+                            </div>
+                            <div class="overlay-wrap">
+                              <div class="overlay-inner p-content overlay-text">
+                                <div class="p-categories p-top">
+                                  <a class="p-category category-id-4" href="category/politics/index.htm" rel="category">Politics</a>
+                                </div>
+                                <h2 class="entry-title">
+                                  <a class="p-url" href="understanding-the-electoral-college-system/index.htm" rel="bookmark">Understanding the Electoral College System</a>
+                                </h2>
+                                <p class="entry-summary">Great design seamlessly integrates with the user experience, making the interaction smooth and intuitive. It&#039;s not just about aesthetics; it&#039;s about functionality and usability, ensuring users can achieve their goals&hellip;</p>
+                                <div class="p-meta has-bookmark">
+                                  <div class="meta-inner is-meta">
+                                    <span class="meta-el meta-update">
+                                      <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                                    </span>
+                                  </div>
+                                  <span class="rb-bookmark bookmark-trigger" data-pid="181"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-element-544b6d6 e-con-full e-flex e-con e-child" data-id="544b6d6" data-element_type="container">
+                <div class="elementor-element elementor-element-6bff30d elementor-widget elementor-widget-foxiz-overlay-flex" data-id="6bff30d" data-element_type="widget" data-widget_type="foxiz-overlay-flex.default">
+                  <div class="elementor-widget-container">
+                    <div id="uid_6bff30d" class="block-wrap block-overlay block-overlay-flex light-overlay-scheme p-gradient rb-columns rb-col-3 rb-tcol-3 rb-mcol-1 is-gap-custom hovering-fade ecat-text meta-s-dot">
+                      <div class="block-inner">
+                        <div class="p-wrap p-overlay p-overlay-flex" data-pid="164">
+                          <div class="overlay-holder">
+                            <div class="p-featured">
+                              <a class="p-flink" href="the-importance-of-voting-in-local-elections/index.htm" title="The Importance of Voting in Local Elections">
+                                <img decoding="async" width="860" height="484" src="{% static 'wp-content/uploads/sites/2/2024/07/p5-860x484.jpg' %}" class="featured-img wp-post-image" alt="" loading="eager">
+                              </a>
+                            </div>
+                            <div class="overlay-wrap">
+                              <div class="p-content overlay-inner overlay-text">
+                                <div class="p-categories p-top">
+                                  <a class="p-category category-id-4" href="category/politics/index.htm" rel="category">Politics</a>
+                                </div>
+                                <h2 class="entry-title">
+                                  <a class="p-url" href="the-importance-of-voting-in-local-elections/index.htm" rel="bookmark">The Importance of Voting in Local Elections</a>
+                                </h2>
+                                <div class="p-meta has-bookmark">
+                                  <div class="meta-inner is-meta">
+                                    <span class="meta-el meta-update">
+                                      <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                                    </span>
+                                  </div>
+                                  <span class="rb-bookmark bookmark-trigger" data-pid="164"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-overlay p-overlay-flex" data-pid="175">
+                          <div class="overlay-holder">
+                            <div class="p-featured">
+                              <a class="p-flink" href="exploring-the-relationship-between-politics-and-economics/index.htm" title="Exploring the Relationship Between Politics and Economics">
+                                <img decoding="async" width="860" height="573" src="{% static 'wp-content/uploads/sites/2/2024/07/p6-860x573.jpg' %}" class="featured-img wp-post-image" alt="" loading="eager">
+                              </a>
+                            </div>
+                            <div class="overlay-wrap">
+                              <div class="p-content overlay-inner overlay-text">
+                                <div class="p-categories p-top">
+                                  <a class="p-category category-id-4" href="category/politics/index.htm" rel="category">Politics</a>
+                                </div>
+                                <h2 class="entry-title">
+                                  <a class="p-url" href="exploring-the-relationship-between-politics-and-economics/index.htm" rel="bookmark">Exploring the Relationship Between Politics and Economics</a>
+                                </h2>
+                                <div class="p-meta has-bookmark">
+                                  <div class="meta-inner is-meta">
+                                    <span class="meta-el meta-update">
+                                      <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                                    </span>
+                                  </div>
+                                  <span class="rb-bookmark bookmark-trigger" data-pid="175"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-wrap p-overlay p-overlay-flex" data-pid="1055">
+                          <div class="overlay-holder">
+                            <div class="p-featured">
+                              <a class="p-flink" href="the-impact-of-social-media-on-political-campaigns/index.htm" title="The Impact of Social Media on Political Campaigns">
+                                <img decoding="async" width="860" height="575" src="{% static 'wp-content/uploads/sites/2/2024/07/p3-860x575.jpg' %}" class="featured-img wp-post-image" alt="" loading="eager">
+                              </a>
+                            </div>
+                            <div class="overlay-wrap">
+                              <div class="p-content overlay-inner overlay-text">
+                                <div class="p-categories p-top">
+                                  <a class="p-category category-id-4" href="category/politics/index.htm" rel="category">Politics</a>
+                                </div>
+                                <h2 class="entry-title">
+                                  <a class="p-url" href="the-impact-of-social-media-on-political-campaigns/index.htm" rel="bookmark">The Impact of Social Media on Political Campaigns</a>
+                                </h2>
+                                <div class="p-meta has-bookmark">
+                                  <div class="meta-inner is-meta">
+                                    <span class="meta-el meta-update">
+                                      <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                                    </span>
+                                  </div>
+                                  <span class="rb-bookmark bookmark-trigger" data-pid="1055"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="elementor-element elementor-element-fab5acc e-flex e-con-boxed e-con e-parent" data-id="fab5acc" data-element_type="container">
+            <div class="e-con-inner">
+              <div class="elementor-element elementor-element-955b0c9 elementor-widget elementor-widget-foxiz-heading" data-id="955b0c9" data-element_type="widget" data-widget_type="foxiz-heading.default">
+                <div class="elementor-widget-container">
+                  <div id="uid_955b0c9" class="block-h heading-layout-10">
+                    <div class="heading-inner">
+                      <h2 class="heading-title">
+                        <a class="h-link" href="blog.html">More News
+                          <i class="rbi rbi-angle-right"></i>
+                        </a>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-element-8e745bc elementor-widget elementor-widget-foxiz-grid-flex-2" data-id="8e745bc" data-element_type="widget" data-widget_type="foxiz-grid-flex-2.default">
+                <div class="elementor-widget-container">
+                  <div id="uid_8e745bc" class="block-wrap block-grid block-grid-flex-2 rb-columns rb-col-4 rb-tcol-4 is-gap-custom hovering-fade bottom-border is-b-border-gray no-last-bb is-pagi-text ecat-text is-m-list meta-s-dot">
+                    <div class="block-inner">
+                      <div class="p-wrap p-grid p-grid-2" data-pid="1316">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="how-climate-change-is-affecting-weather-patterns/index.htm" title="How Climate Change is Affecting Weather Patterns">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/ev1-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-1" href="category/world/index.htm" rel="category">World</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="how-climate-change-is-affecting-weather-patterns/index.htm" rel="bookmark">How Climate Change is Affecting Weather Patterns</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="1316"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="134">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="understanding-credit-scores-and-how-to-improve-them/index.htm" title="Understanding Credit Scores and How to Improve Them">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/f1-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-2" href="category/finance/index.htm" rel="category">Finance</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="understanding-credit-scores-and-how-to-improve-them/index.htm" rel="bookmark">Understanding Credit Scores and How to Improve Them</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T13:09:20+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="134"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="172">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="financial-planning-for-small-business-owners/index.htm" title="Financial Planning for Small Business Owners">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/f2-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-2" href="category/finance/index.htm" rel="category">Finance</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="financial-planning-for-small-business-owners/index.htm" rel="bookmark">Financial Planning for Small Business Owners</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="172"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="152">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="how-to-plan-for-a-secure-retirement/index.htm" title="How to Plan for a Secure Retirement">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/f3-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-2" href="category/finance/index.htm" rel="category">Finance</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="how-to-plan-for-a-secure-retirement/index.htm" rel="bookmark">How to Plan for a Secure Retirement</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="152"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="1151">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="analyzing-the-latest-stock-market-trends/index.htm" title="Analyzing the Latest Stock Market Trends">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/f5-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-2" href="category/finance/index.htm" rel="category">Finance</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="analyzing-the-latest-stock-market-trends/index.htm" rel="bookmark">Analyzing the Latest Stock Market Trends</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="1151"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="222">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="http://1.envato.market/6bEx7Q" title="The Impact of Interest Rates on the Economy">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/f6-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-2" href="category/finance/index.htm" rel="category">Finance</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="http://1.envato.market/6bEx7Q" rel="noopener nofollow">The Impact of Interest Rates on the Economy</a>
+                        </h2>
+                        <div class="sponsor-meta meta-text">
+                          <div class="sponsor-inner">
+                            <span class="sponsor-icon">
+                              <i class="rbi rbi-notification" aria-hidden="true"></i>
+                            </span>
+                            <span class="sponsor-label">Sponsored by</span>
+                            <span class="sponlogo-wrap meta-bold">
+                              <a class="sponsor-link" href="http://1.envato.market/6bEx7Q" target="_blank" rel="noopener nofollow" aria-label="Ororin">
+                                <span class="sponsor-brand-default is-text" data-mode="default">Ororin</span><span class="sponsor-brand-light is-text" data-mode="dark">Ororin</span>
+                              </a>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="222"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="184">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="the-benefits-of-diversifying-your-portfolio/index.htm" title="The Benefits of Diversifying Your Portfolio">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/f7-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-2" href="category/finance/index.htm" rel="category">Finance</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="the-benefits-of-diversifying-your-portfolio/index.htm" rel="bookmark">The Benefits of Diversifying Your Portfolio</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="184"></span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="1015">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="advancements-in-quantum-computing/index.htm" title="Advancements in Quantum Computing">
+                              <img loading="lazy" decoding="async" width="420" height="280" src="{% static 'wp-content/uploads/sites/2/2024/07/t3-420x280.jpg' %}" class="featured-img wp-post-image" alt="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="p-categories p-top">
+                          <a class="p-category category-id-5" href="category/technology/index.htm" rel="category">Technology</a>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="advancements-in-quantum-computing/index.htm" rel="bookmark">Advancements in Quantum Computing</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger" data-pid="1015"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pagination-wrap pagination-loadmore">
+                      <a href="#" class="loadmore-trigger">
+                        <span>Show More</span>
+                        <i class="rb-loader" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endblock content %}
+        </div>
+      </div>
+      {% block footer %}
+        {% include "components/footer.html" %}
+      {% endblock %}
+    </div>
+
+    <script defer="" src="data:text/javascript;base64,KGZ1bmN0aW9uKCkge2Z1bmN0aW9uIG1heWJlUHJlZml4VXJsRmllbGQgKCkgewogIGNvbnN0IHZhbHVlID0gdGhpcy52YWx1ZS50cmltKCkKICBpZiAodmFsdWUgIT09ICcnICYmIHZhbHVlLmluZGV4T2YoJ2h0dHAnKSAhPT0gMCkgewogICAgdGhpcy52YWx1ZSA9ICdodHRwOi8vJyArIHZhbHVlCiAgfQp9Cgpjb25zdCB1cmxGaWVsZHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCcubWM0d3AtZm9ybSBpbnB1dFt0eXBlPSJ1cmwiXScpCmZvciAobGV0IGogPSAwOyBqIDwgdXJsRmllbGRzLmxlbmd0aDsgaisrKSB7CiAgdXJsRmllbGRzW2pdLmFkZEV2ZW50TGlzdGVuZXIoJ2JsdXInLCBtYXliZVByZWZpeFVybEZpZWxkKQp9Cn0pKCk7"></script>
+    <script type="text/template" id="bookmark-toggle-template">
+      <i class="rbi rbi-bookmark" aria-hidden="true" data-title="Save it"></i>
+      <i class="bookmarked-icon rbi rbi-bookmark-fill" aria-hidden="true" data-title="Undo Save"></i>
+    </script>
+    <script type="text/template" id="bookmark-ask-login-template">
+      <a class="login-toggle" data-title="Sign In to Save" href="">
+        <i class="rbi rbi-bookmark" aria-hidden="true"></i>
+      </a>
+    </script>
+    <script type="text/template" id="follow-ask-login-template">
+      <a class="login-toggle" data-title="Sign In to Follow" href="">
+        <i class="follow-icon rbi rbi-plus" data-title="Sign In to Follow" aria-hidden="true"></i>
+      </a>
+    </script>
+    <script type="text/template" id="follow-toggle-template">
+      <i class="follow-icon rbi rbi-plus" data-title="Follow"></i>
+      <i class="followed-icon rbi rbi-bookmark-fill" data-title="Unfollow"></i>
+    </script>
+    <aside id="bookmark-notification" class="bookmark-notification"></aside>
+    <script type="text/template" id="bookmark-notification-template">
+      <div class="bookmark-notification-inner {{classes}}">
+        <div class="bookmark-featured">{{image}}</div>
+        <div class="bookmark-inner">
+          <span class="bookmark-title h5">{{title}}</span><span class="bookmark-desc">{{description}}</span>
+        </div>
+      </div>
+    </script>
+    <script type="text/template" id="follow-notification-template">
+      <div class="follow-info bookmark-notification-inner {{classes}}">
+        <span class="follow-desc"><span>{{description}}</span>
+          <strong>{{name}}</strong>
+        </span>
+      </div>
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://foxiz.themeruby.com/presspulse/the-role-of-media-in-modern-politics/",
+            "name": "The Role of Media in Modern Politics",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/p1.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://foxiz.themeruby.com/presspulse/balancing-economic-growth-and-environmental-protection/",
+            "name": "Balancing Economic Growth and Environmental Protection",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/e1.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://foxiz.themeruby.com/presspulse/the-role-of-government-policies-in-environmental-protection/",
+            "name": "The Role of Government Policies in Environmental Protection",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/ev6.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://foxiz.themeruby.com/presspulse/protecting-endangered-species-and-their-habitats/",
+            "name": "Protecting Endangered Species and Their Habitats",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/ev4.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 5,
+            "url": "https://foxiz.themeruby.com/presspulse/innovative-solutions-for-reducing-plastic-waste/",
+            "name": "Innovative Solutions for Reducing Plastic Waste",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/ev5.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 6,
+            "url": "https://foxiz.themeruby.com/presspulse/the-role-of-education-in-shaping-future-leaders/",
+            "name": "The Role of Education in Shaping Future Leaders",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/e9.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 7,
+            "url": "https://foxiz.themeruby.com/presspulse/the-importance-of-free-speech-in-a-digital-age/",
+            "name": "The Importance of Free Speech in a Digital Age",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/e4.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 8,
+            "url": "https://foxiz.themeruby.com/presspulse/challenges-and-opportunities-in-immigration-policy/",
+            "name": "Challenges and Opportunities in Immigration Policy",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/e2.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 9,
+            "url": "https://foxiz.themeruby.com/presspulse/the-future-of-remote-work-and-its-impact-on-business/",
+            "name": "The Future of Remote Work and Its Impact on Business",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/b1.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 10,
+            "url": "https://foxiz.themeruby.com/presspulse/top-strategies-for-small-business-growth-in-2024/",
+            "name": "Top Strategies for Small Business Growth in 2024",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/b2.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 11,
+            "url": "https://foxiz.themeruby.com/presspulse/navigating-the-global-supply-chain-crisis/",
+            "name": "Navigating the Global Supply Chain Crisis",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/b3.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 12,
+            "url": "https://foxiz.themeruby.com/presspulse/how-to-build-a-sustainable-business-model/",
+            "name": "How to Build a Sustainable Business Model",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/b4.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 13,
+            "url": "https://foxiz.themeruby.com/presspulse/the-role-of-artificial-intelligence-in-modern-business/",
+            "name": "The Role of Artificial Intelligence in Modern Business",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/b5.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 14,
+            "url": "https://foxiz.themeruby.com/presspulse/understanding-the-cryptocurrency-market-for-business-owners/",
+            "name": "Understanding the Cryptocurrency Market for Business Owners",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/b6.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 15,
+            "url": "https://foxiz.themeruby.com/presspulse/exploring-the-benefits-of-business-incubators-and-accelerators/",
+            "name": "Exploring the Benefits of Business Incubators and Accelerators",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/b7.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 16,
+            "url": "https://foxiz.themeruby.com/presspulse/exploring-blockchain-technology-beyond-cryptocurrency/",
+            "name": "Exploring Blockchain Technology Beyond Cryptocurrency",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/t4.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 17,
+            "url": "https://foxiz.themeruby.com/presspulse/how-5g-will-transform-communication-and-connectivity/",
+            "name": "How 5G Will Transform Communication and Connectivity",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/t5.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 18,
+            "url": "https://foxiz.themeruby.com/presspulse/the-rise-of-augmented-reality-in-everyday-life/",
+            "name": "The Rise of Augmented Reality in Everyday Life",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/t1.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 19,
+            "url": "https://foxiz.themeruby.com/presspulse/cybersecurity-threats-and-how-to-protect-your-data/",
+            "name": "Cybersecurity Threats and How to Protect Your Data",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/t6.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 20,
+            "url": "https://foxiz.themeruby.com/presspulse/how-to-support-environmental-conservation-efforts/",
+            "name": "How to Support Environmental Conservation Efforts",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/e3.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 21,
+            "url": "https://foxiz.themeruby.com/presspulse/understanding-the-effects-of-air-pollution-on-health/",
+            "name": "Understanding the Effects of Air Pollution on Health",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/ev2.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 22,
+            "url": "https://foxiz.themeruby.com/presspulse/exploring-the-benefits-of-renewable-energy-sources/",
+            "name": "Exploring the Benefits of Renewable Energy Sources",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/ev3.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 23,
+            "url": "https://foxiz.themeruby.com/presspulse/understanding-the-electoral-college-system/",
+            "name": "Understanding the Electoral College System",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/p2.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 24,
+            "url": "https://foxiz.themeruby.com/presspulse/the-importance-of-voting-in-local-elections/",
+            "name": "The Importance of Voting in Local Elections",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/p5.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 25,
+            "url": "https://foxiz.themeruby.com/presspulse/exploring-the-relationship-between-politics-and-economics/",
+            "name": "Exploring the Relationship Between Politics and Economics",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/p6.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 26,
+            "url": "https://foxiz.themeruby.com/presspulse/the-impact-of-social-media-on-political-campaigns/",
+            "name": "The Impact of Social Media on Political Campaigns",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/p3.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 27,
+            "url": "https://foxiz.themeruby.com/presspulse/how-climate-change-is-affecting-weather-patterns/",
+            "name": "How Climate Change is Affecting Weather Patterns",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/ev1.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 28,
+            "url": "https://foxiz.themeruby.com/presspulse/understanding-credit-scores-and-how-to-improve-them/",
+            "name": "Understanding Credit Scores and How to Improve Them",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/f1.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 29,
+            "url": "https://foxiz.themeruby.com/presspulse/financial-planning-for-small-business-owners/",
+            "name": "Financial Planning for Small Business Owners",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/f2.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 30,
+            "url": "https://foxiz.themeruby.com/presspulse/how-to-plan-for-a-secure-retirement/",
+            "name": "How to Plan for a Secure Retirement",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/f3.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 31,
+            "url": "https://foxiz.themeruby.com/presspulse/analyzing-the-latest-stock-market-trends/",
+            "name": "Analyzing the Latest Stock Market Trends",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/f5.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 32,
+            "url": "https://foxiz.themeruby.com/presspulse/the-impact-of-interest-rates-on-the-economy/",
+            "name": "The Impact of Interest Rates on the Economy",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/f6.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 33,
+            "url": "https://foxiz.themeruby.com/presspulse/the-benefits-of-diversifying-your-portfolio/",
+            "name": "The Benefits of Diversifying Your Portfolio",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/f7.jpg' %}"
+          }, {
+            "@type": "ListItem",
+            "position": 34,
+            "url": "https://foxiz.themeruby.com/presspulse/advancements-in-quantum-computing/",
+            "name": "Advancements in Quantum Computing",
+            "image": "{% static 'wp-content/uploads/sites/2/2024/07/t3.jpg' %}"
+          }
+        ]
+      }
+    </script>
+    <div id="rb-user-popup-form" class="rb-user-popup-form mfp-animation mfp-hide">
+      <div class="logo-popup-outer">
+        <div class="logo-popup">
+          <div class="login-popup-header">
+            <div class="logo-popup-logo">
+              <img loading="lazy" decoding="async" src="{% static 'wp-content/uploads/sites/2/2024/07/m-logo.png' %}" alt="" height="84" width="100">
+            </div>
+            <span class="logo-popup-heading h3">Welcome to Press Pulse</span>
+          </div>
+          <div class="user-login-form">
+            <form name="popup-form" id="popup-form" action="" method="post">
+              <div class="login-username">
+                <div class="rb-login-label">Username or Email Address</div>
+                <input type="text" name="log" required="required" autocomplete="username" class="input" value="">
+              </div>
+              <div class="login-password">
+                <div class="rb-login-label">Password</div>
+                <div class="is-relative">
+                  <input type="password" name="pwd" required="required" autocomplete="current-password" spellcheck="false" class="input" value="">
+                  <span class="rb-password-toggle">
+                    <i class="rbi rbi-show"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="remember-wrap">
+                <p class="login-remember">
+                  <label class="rb-login-label"><input name="rememberme" type="checkbox" id="rememberme" value="forever">
+                    Remember me</label>
+                </p>
+                <a class="lostpassw-link" href="">Lost your password?</a>
+              </div>
+              <p class="login-submit">
+                <input type="submit" name="wp-submit" class="button button-primary" value="Log In">
+                <input type="hidden" name="redirect_to" value="">
+              </p>
+            </form>
+            <div class="login-form-footer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script defer="" id="foxiz-core-js-extra" src="data:text/javascript;base64,CnZhciBmb3hpekNvcmVQYXJhbXMgPSB7ImFqYXh1cmwiOiJodHRwczpcL1wvZm94aXoudGhlbWVydWJ5LmNvbVwvcHJlc3NwdWxzZVwvd3AtYWRtaW5cL2FkbWluLWFqYXgucGhwIiwiZGFya01vZGVJRCI6IkRfZm94aXoudGhlbWVydWJ5LmNvbV9wcmVzc3B1bHNlIiwiY29va2llRG9tYWluIjoiZm94aXoudGhlbWVydWJ5LmNvbSIsImNvb2tpZVBhdGgiOiJcLyIsIm1TaXRlSUQiOiJwcmVzc3B1bHNlIn07Cg=="></script>
+    <script defer="" src="{% static 'wp-content/cache/autoptimize/2/js/autoptimize_single_5df2940bc61300827ce195a780358010.js' %}?ver=2.4.3" id="foxiz-core-js"></script>
+    <script defer="" src="{% static 'wp-content/cache/autoptimize/2/js/autoptimize_single_efc27e253fae1b7b891fb5a40e687768.js' %}?ver=5.9.6" id="swv-js"></script>
+    <script defer="" id="contact-form-7-js-extra" src="data:text/javascript;base64,CnZhciB3cGNmNyA9IHsiYXBpIjp7InJvb3QiOiJodHRwczpcL1wvZm94aXoudGhlbWVydWJ5LmNvbVwvcHJlc3NwdWxzZVwvd3AtanNvblwvIiwibmFtZXNwYWNlIjoiY29udGFjdC1mb3JtLTdcL3YxIn0sImNhY2hlZCI6IjEifTsK"></script>
+    <script defer="" src="{% static 'wp-content/cache/autoptimize/2/js/autoptimize_single_917602d642f84a211838f0c1757c4dc1.js' %}?ver=5.9.6" id="contact-form-7-js"></script>
+    <script defer="" src="{% static 'wp-content/themes/foxiz/assets/js/jquery.waypoints.min.js' %}?ver=3.1.1" id="jquery-waypoints-js"></script>
+    <script defer="" src="{% static 'wp-content/themes/foxiz/assets/js/rbswiper.min.js' %}?ver=6.5.8" id="rbswiper-js"></script>
+    <script defer="" src="{% static 'wp-content/themes/foxiz/assets/js/jquery.mp.min.js' %}?ver=1.1.0" id="jquery-magnific-popup-js"></script>
+    <script defer="" src="{% static 'wp-content/themes/foxiz/assets/js/jquery.tipsy.min.js' %}?ver=1.0" id="rb-tipsy-js"></script>
+    <script defer="" src="{% static 'wp-content/themes/foxiz/assets/js/jquery.ui.totop.min.js' %}?ver=v1.2" id="jquery-uitotop-js"></script>
+    <script defer="" src="{% static 'wp-content/cache/autoptimize/2/js/autoptimize_single_eb7026a26353913619dc9234830e19af.js' %}?ver=2.4.3" id="foxiz-personalize-js"></script>
+    <script defer="" id="foxiz-global-js-extra" src="data:text/javascript;base64,CnZhciBmb3hpelBhcmFtcyA9IHsidHdpdHRlck5hbWUiOiJQcmVzcyBQdWxzZSIsInNsaWRlclNwZWVkIjoiNTAwMCIsInNsaWRlckVmZmVjdCI6InNsaWRlIiwic2xpZGVyRk1vZGUiOiIxIn07CnZhciB1aWRfOGU3NDViYyA9IHsidXVpZCI6InVpZF84ZTc0NWJjIiwibmFtZSI6ImdyaWRfZmxleF8yIiwib3JkZXIiOiJkYXRlX3Bvc3QiLCJwb3N0c19wZXJfcGFnZSI6IjgiLCJwYWdpbmF0aW9uIjoibG9hZF9tb3JlIiwidW5pcXVlIjoiMSIsImNyb3Bfc2l6ZSI6ImZveGl6X2Nyb3BfZzIiLCJmZWF0X2hvdmVyIjoiZmFkZSIsImVudHJ5X2NhdGVnb3J5IjoidGV4dCIsInRpdGxlX3RhZyI6ImgyIiwiZW50cnlfbWV0YSI6WyJ1cGRhdGUiXSwicmV2aWV3IjoiMSIsInJldmlld19tZXRhIjoiLTEiLCJzcG9uc29yX21ldGEiOiIxIiwiYm9va21hcmsiOiIxIiwiZW50cnlfZm9ybWF0IjoiYm90dG9tIiwiZXhjZXJwdF9sZW5ndGgiOiIxMiIsInJlYWRtb3JlIjoiUmVhZCBNb3JlIiwiZGl2aWRlcl9zdHlsZSI6InNvbGlkIiwicG9zdF9ub3RfaW4iOiIxMzQwLDE0OSwxMDE5LDEwMDQsMjI4LDE0MCwxOTAsMjI1LDE0NiwyMywxNCw2MiwxMjYsMTEzLDQ2LDI1MiwxMTEsMTEwLDU2LDI0MywxMTU0LDk4MSwxODEsMTY0LDE3NSwxMDU1IiwicGFnZWQiOiIxIiwicGFnZV9tYXgiOiIzIn07Cg=="></script>
+    <script defer="" src="{% static 'wp-content/cache/autoptimize/2/js/autoptimize_single_e67c6b55f343e8b1055d22791c670781.js' %}?ver=2.4.3" id="foxiz-global-js"></script>
+    <script defer="" src="{% static 'wp-content/cache/autoptimize/2/js/autoptimize_single_890cc3c1dbfa7a6cf4ef53207b32d68c.js' %}?ver=4.9.13" id="mc4wp-forms-api-js"></script>
+    <script defer="" src="{% static 'wp-content/plugins/elementor/assets/js/webpack.runtime.min.js' %}?ver=3.23.1" id="elementor-webpack-runtime-js"></script>
+    <script defer="" src="{% static 'wp-content/plugins/elementor/assets/js/frontend-modules.min.js' %}?ver=3.23.1" id="elementor-frontend-modules-js"></script>
+    <script defer="" src="{% static 'wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js' %}?ver=4.0.2" id="elementor-waypoints-js"></script>
+    <script defer="" src="{% static 'wp-includes/js/jquery/ui/core.min.js' %}?ver=1.13.3" id="jquery-ui-core-js"></script>
+    <script defer="" id="elementor-frontend-js-before" src="data:text/javascript;base64,CnZhciBlbGVtZW50b3JGcm9udGVuZENvbmZpZyA9IHsiZW52aXJvbm1lbnRNb2RlIjp7ImVkaXQiOmZhbHNlLCJ3cFByZXZpZXciOmZhbHNlLCJpc1NjcmlwdERlYnVnIjpmYWxzZX0sImkxOG4iOnsic2hhcmVPbkZhY2Vib29rIjoiU2hhcmUgb24gRmFjZWJvb2siLCJzaGFyZU9uVHdpdHRlciI6IlNoYXJlIG9uIFR3aXR0ZXIiLCJwaW5JdCI6IlBpbiBpdCIsImRvd25sb2FkIjoiRG93bmxvYWQiLCJkb3dubG9hZEltYWdlIjoiRG93bmxvYWQgaW1hZ2UiLCJmdWxsc2NyZWVuIjoiRnVsbHNjcmVlbiIsInpvb20iOiJab29tIiwic2hhcmUiOiJTaGFyZSIsInBsYXlWaWRlbyI6IlBsYXkgVmlkZW8iLCJwcmV2aW91cyI6IlByZXZpb3VzIiwibmV4dCI6Ik5leHQiLCJjbG9zZSI6IkNsb3NlIiwiYTExeUNhcm91c2VsV3JhcHBlckFyaWFMYWJlbCI6IkNhcm91c2VsIHwgSG9yaXpvbnRhbCBzY3JvbGxpbmc6IEFycm93IExlZnQgJiBSaWdodCIsImExMXlDYXJvdXNlbFByZXZTbGlkZU1lc3NhZ2UiOiJQcmV2aW91cyBzbGlkZSIsImExMXlDYXJvdXNlbE5leHRTbGlkZU1lc3NhZ2UiOiJOZXh0IHNsaWRlIiwiYTExeUNhcm91c2VsRmlyc3RTbGlkZU1lc3NhZ2UiOiJUaGlzIGlzIHRoZSBmaXJzdCBzbGlkZSIsImExMXlDYXJvdXNlbExhc3RTbGlkZU1lc3NhZ2UiOiJUaGlzIGlzIHRoZSBsYXN0IHNsaWRlIiwiYTExeUNhcm91c2VsUGFnaW5hdGlvbkJ1bGxldE1lc3NhZ2UiOiJHbyB0byBzbGlkZSJ9LCJpc19ydGwiOmZhbHNlLCJicmVha3BvaW50cyI6eyJ4cyI6MCwic20iOjQ4MCwibWQiOjc2OCwibGciOjEwMjUsInhsIjoxNDQwLCJ4eGwiOjE2MDB9LCJyZXNwb25zaXZlIjp7ImJyZWFrcG9pbnRzIjp7Im1vYmlsZSI6eyJsYWJlbCI6Ik1vYmlsZSBQb3J0cmFpdCIsInZhbHVlIjo3NjcsImRlZmF1bHRfdmFsdWUiOjc2NywiZGlyZWN0aW9uIjoibWF4IiwiaXNfZW5hYmxlZCI6dHJ1ZX0sIm1vYmlsZV9leHRyYSI6eyJsYWJlbCI6Ik1vYmlsZSBMYW5kc2NhcGUiLCJ2YWx1ZSI6ODgwLCJkZWZhdWx0X3ZhbHVlIjo4ODAsImRpcmVjdGlvbiI6Im1heCIsImlzX2VuYWJsZWQiOmZhbHNlfSwidGFibGV0Ijp7ImxhYmVsIjoiVGFibGV0IFBvcnRyYWl0IiwidmFsdWUiOjEwMjQsImRlZmF1bHRfdmFsdWUiOjEwMjQsImRpcmVjdGlvbiI6Im1heCIsImlzX2VuYWJsZWQiOnRydWV9LCJ0YWJsZXRfZXh0cmEiOnsibGFiZWwiOiJUYWJsZXQgTGFuZHNjYXBlIiwidmFsdWUiOjEyMDAsImRlZmF1bHRfdmFsdWUiOjEyMDAsImRpcmVjdGlvbiI6Im1heCIsImlzX2VuYWJsZWQiOmZhbHNlfSwibGFwdG9wIjp7ImxhYmVsIjoiTGFwdG9wIiwidmFsdWUiOjEzNjYsImRlZmF1bHRfdmFsdWUiOjEzNjYsImRpcmVjdGlvbiI6Im1heCIsImlzX2VuYWJsZWQiOmZhbHNlfSwid2lkZXNjcmVlbiI6eyJsYWJlbCI6IldpZGVzY3JlZW4iLCJ2YWx1ZSI6MjQwMCwiZGVmYXVsdF92YWx1ZSI6MjQwMCwiZGlyZWN0aW9uIjoibWluIiwiaXNfZW5hYmxlZCI6ZmFsc2V9fX0sInZlcnNpb24iOiIzLjIzLjEiLCJpc19zdGF0aWMiOmZhbHNlLCJleHBlcmltZW50YWxGZWF0dXJlcyI6eyJlX29wdGltaXplZF9jc3NfbG9hZGluZyI6dHJ1ZSwiZV9mb250X2ljb25fc3ZnIjp0cnVlLCJhZGRpdGlvbmFsX2N1c3RvbV9icmVha3BvaW50cyI6dHJ1ZSwiY29udGFpbmVyIjp0cnVlLCJjb250YWluZXJfZ3JpZCI6dHJ1ZSwiZV9zd2lwZXJfbGF0ZXN0Ijp0cnVlLCJlX25lc3RlZF9hdG9taWNfcmVwZWF0ZXJzIjp0cnVlLCJlX29wdGltaXplZF9jb250cm9sX2xvYWRpbmciOnRydWUsImVfb25ib2FyZGluZyI6dHJ1ZSwiaG9tZV9zY3JlZW4iOnRydWUsImFpLWxheW91dCI6dHJ1ZSwiZV9sYXp5bG9hZCI6dHJ1ZX0sInVybHMiOnsiYXNzZXRzIjoiaHR0cHM6XC9cL2ZveGl6LnRoZW1lcnVieS5jb21cL3ByZXNzcHVsc2VcL3dwLWNvbnRlbnRcL3BsdWdpbnNcL2VsZW1lbnRvclwvYXNzZXRzXC8iLCJhamF4dXJsIjoiaHR0cHM6XC9cL2ZveGl6LnRoZW1lcnVieS5jb21cL3ByZXNzcHVsc2VcL3dwLWFkbWluXC9hZG1pbi1hamF4LnBocCJ9LCJub25jZXMiOnsiZmxvYXRpbmdCdXR0b25zQ2xpY2tUcmFja2luZyI6ImZlN2FhZDYyYjcifSwic3dpcGVyQ2xhc3MiOiJzd2lwZXIiLCJzZXR0aW5ncyI6eyJwYWdlIjpbXSwiZWRpdG9yUHJlZmVyZW5jZXMiOltdfSwia2l0Ijp7ImFjdGl2ZV9icmVha3BvaW50cyI6WyJ2aWV3cG9ydF9tb2JpbGUiLCJ2aWV3cG9ydF90YWJsZXQiXSwiZ2xvYmFsX2ltYWdlX2xpZ2h0Ym94IjoieWVzIiwibGlnaHRib3hfZW5hYmxlX2NvdW50ZXIiOiJ5ZXMiLCJsaWdodGJveF9lbmFibGVfZnVsbHNjcmVlbiI6InllcyIsImxpZ2h0Ym94X2VuYWJsZV96b29tIjoieWVzIiwibGlnaHRib3hfZW5hYmxlX3NoYXJlIjoieWVzIiwibGlnaHRib3hfdGl0bGVfc3JjIjoidGl0bGUiLCJsaWdodGJveF9kZXNjcmlwdGlvbl9zcmMiOiJkZXNjcmlwdGlvbiJ9LCJwb3N0Ijp7ImlkIjoyMTU4LCJ0aXRsZSI6IlByZXNzJTIwUHVsc2UiLCJleGNlcnB0IjoiIiwiZmVhdHVyZWRJbWFnZSI6ZmFsc2V9fTsK"></script>
+    <script defer="" src="{% static 'wp-content/plugins/elementor/assets/js/frontend.min.js' %}?ver=3.23.1" id="elementor-frontend-js"></script>
+  </body>
+
+</html>

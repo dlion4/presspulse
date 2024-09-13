@@ -1,6 +1,8 @@
 # ruff: noqa: ERA001, E501
 """Base settings to build other settings files upon."""
+
 import os
+import sys
 from pathlib import Path
 
 import environ
@@ -11,10 +13,10 @@ from .utils import get_database_config
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # presspulse/
 APPS_DIR = BASE_DIR / "presspulse"
+sys.path.append(str(BASE_DIR / "website"))
 env = environ.Env()
 
-READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=True)
-if READ_DOT_ENV_FILE:
+if READ_DOT_ENV_FILE := env.bool("DJANGO_READ_DOT_ENV_FILE", default=True):
     # OS environment variables take precedence over variables from .env
     env.read_env(str(BASE_DIR / ".env"))
 
@@ -49,9 +51,19 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {"default": env.db("DATABASE_URL")}
+DATABASES = {
+    "default": env.db("DATABASE_URL"),
+# The above code snippet is configuring database settings in a Django project. It defines two database
+# configurations: "default" and "finance".
+    # "finance": env.db("FINANCE_DATABASE_URL"),
+    # "medical": env.db("MEDICAL_DATABASE_URL"),
+    }
 DATABASES["default"]["ENGINE"] = "django_tenants.postgresql_backend"
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
+# # DATABASES["finance"]["ENGINE"] = "django_tenants.postgresql_backend"
+# DATABASES["finance"]["ATOMIC_REQUESTS"] = True
+# # DATABASES["medical"]["ENGINE"] = "django_tenants.postgresql_backend"
+# DATABASES["medical"]["ATOMIC_REQUESTS"] = True
 # WILL RUN OR CREATE MULTIPLE DATABASES WITH EACH WEBSITE HAVING ITS OWN DATABASE
 DATABASE_ROUTERS = (
     "django_tenants.routers.TenantSyncRouter",
@@ -87,12 +99,23 @@ ROOT_URLCONF = "config.urls"
 # https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = "config.wsgi.application"
 
+
+MAIN_WEBSITE_APPLICATIONS = [
+    "website.main.news",
+    "website.main.posts",
+]
+
+
 # APPS
 # ------------------------------------------------------------------------------
 SHARED_APPS = [
     "django_tenants",  # mandatory
     # for the core hosting the domain and the clients
     "website.main.main_app",
+    "website.main.news",
+    "website.main.posts",
+
+    "django_cotton.apps.SimpleAppConfig",
     # other shared django applications
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -103,9 +126,8 @@ SHARED_APPS = [
     "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
     "django.forms",
-
-
 ]
+
 THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
@@ -114,13 +136,19 @@ THIRD_PARTY_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "drf_spectacular",
+
 ]
+
 
 TENANT_APPS  = [
     # these are tenants applications applications
     "presspulse.users",
     # Your stuff: custom apps go here
+    # MAIN APPLICATION
+    # *MAIN_WEBSITE_APPLICATIONS
 ]
+
+
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = SHARED_APPS + THIRD_PARTY_APPS + TENANT_APPS
 
@@ -169,7 +197,7 @@ MIDDLEWARE = [
     #Add the middleware django_tenants.middleware.main.TenantMainMiddleware to the top of MIDDLEWARE, so that each request can be set to use the correct schema.
     "django_tenants.middleware.main.TenantMainMiddleware",
     # custom tenant middleware for the databases
-    "website.main.main_app.middleware.TenantConnectionMiddleware",
+    # "website.main.main_app.middleware.TenantConnectionMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -216,17 +244,19 @@ MULTITENANT_RELATIVE_MEDIA_ROOT = "%s/media_dir"
 
 # https://django-tenants.readthedocs.io/en/latest/files.html#configuring-media-file-storage
 # ---------------------------------------------------------------------------
-DEFAULT_FILE_STORAGE = "django_tenants.files.storage.TenantFileSystemStorage"
+# DEFAULT_FILE_STORAGE = "django_tenants.files.storage.TenantFileSystemStorage"
 MULTITENANT_RELATIVE_MEDIA_ROOT = ""  # (default: create sub-directory for each tenant)
 # TEMPLATES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#templates
+
+
 TEMPLATES = [
     {
         # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATES-BACKEND
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         # https://docs.djangoproject.com/en/dev/ref/settings/#dirs
-        "DIRS": [str(APPS_DIR / "templates")],
+        "DIRS": [],
         # https://docs.djangoproject.com/en/dev/ref/settings/#app-dirs
         "APP_DIRS": False,
         "OPTIONS": {
@@ -242,9 +272,13 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
             ],
             "loaders": [
+                "django_cotton.cotton_loader.Loader",
                 "django_tenants.template.loaders.filesystem.Loader",  # Must be first
                 "django.template.loaders.filesystem.Loader",
                 "django.template.loaders.app_directories.Loader",
+            ],
+            "builtins": [
+                "django_cotton.templatetags.cotton",
             ],
         },
     },
@@ -252,7 +286,9 @@ TEMPLATES = [
 
 #  https://django-tenants.readthedocs.io/en/latest/files.html#configuring-the-template-loaders
 # ---------------------------------------------------------------------------------------
-MULTITENANT_TEMPLATE_DIRS = [str(BASE_DIR / "tenants/%s/templates")]
+MULTITENANT_TEMPLATE_DIRS = [
+    str(BASE_DIR / "tenants/%s/templates"),
+]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#form-renderer
 FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
@@ -383,6 +419,6 @@ SPECTACULAR_SETTINGS = {
 # ---------------------------------------------------
 TENANT_MODEL = "main_app.Client"
 TENANT_DOMAIN_MODEL = "main_app.Domain"
-PUBLIC_SCHEMA_URLCONF = "main.main_app.urls"
+PUBLIC_SCHEMA_URLCONF  = "website.main.urls"
 
 

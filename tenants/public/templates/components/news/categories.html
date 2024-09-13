@@ -1,0 +1,8 @@
+{% load static %}
+
+{% for cat in categories %}
+  <li id="menu-item-2679" class="{% if request.resolver_match.view_name == cat.get_absolute_url %} menu-item {% endif %} menu-item-type-taxonomy menu-item-object-category menu-item-2679 current-menu-item">
+    <a href="{{cat.get_absolute_url}}">
+      <span>{{cat.name|title}}</span></a>
+  </li>
+{% endfor %}

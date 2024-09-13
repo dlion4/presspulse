@@ -1,0 +1,88 @@
+{
+    "id": 1863,
+    "date": "2023-04-04T05:15:03",
+    "date_gmt": "2023-04-04T05:15:03",
+    "guid": {
+        "rendered": "https:\/\/foxiz.themeruby.com\/justforyou\/?page_id=1863"
+    },
+    "modified": "2024-07-23T05:28:50",
+    "modified_gmt": "2024-07-23T05:28:50",
+    "slug": "read-history",
+    "status": "publish",
+    "type": "page",
+    "link": "https:\/\/foxiz.themeruby.com\/presspulse\/read-history\/",
+    "title": {
+        "rendered": "Read History"
+    },
+    "content": {
+        "rendered": "\t\t<div data-elementor-type=\"wp-page\" data-elementor-id=\"1863\" class=\"elementor elementor-1863\">\n\t\t\t\t<div class=\"elementor-element elementor-element-08ae514 e-flex e-con-boxed e-con e-parent\" data-id=\"08ae514\" data-element_type=\"container\">\n\t\t\t\t\t<div class=\"e-con-inner\">\n\t\t\t\t<div class=\"elementor-element elementor-element-e2fceaf elementor-widget elementor-widget-foxiz-heading\" data-id=\"e2fceaf\" data-element_type=\"widget\" data-widget_type=\"foxiz-heading.default\">\n\t\t\t\t<div class=\"elementor-widget-container\">\n\t\t\t<div id=\"uid_e2fceaf\" class=\"block-h heading-layout-19 light-scheme\"><div class=\"heading-inner\"><h2 class=\"heading-title\"><span>Reading History<\/span><\/h2><div class=\"heading-tagline h6\"><span class=\"heading-tagline-label\">See all the posts you've viewed within the last 48 hours!<\/span><\/div><\/div><\/div>\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t\t\t<div class=\"elementor-element elementor-element-777b8ba elementor-widget elementor-widget-foxiz-list-personalize\" data-id=\"777b8ba\" data-element_type=\"widget\" data-widget_type=\"foxiz-list-personalize.default\">\n\t\t\t\t<div class=\"elementor-widget-container\">\n\t\t\t<div id=\"uid_777b8ba\" class=\"block-wrap block-list block-list-personalize is-ajax-block rb-columns rb-col-1 rb-tcol-1 rb-mcol-1 is-gap-20 hovering-fade bottom-border is-b-border-gray no-last-bb is-pagi-text ecat-text is-m-list res-feat-right meta-s-dot\"><div class=\"block-loader\"><svg class=\"svg-icon svg-loading\" aria-hidden=\"true\" role=\"img\" focusable=\"false\" version=\"1.1\" viewBox=\"0 0 66 100\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><circle cx=\"6\" cy=\"50\" r=\"6\" fill=\"currentColor\"><animateTransform attributeName=\"transform\" begin=\"0.1\" dur=\"1s\" repeatCount=\"indefinite\" type=\"translate\" values=\"0 15 ; 0 -15; 0 15\"\/><\/circle><circle cx=\"30\" cy=\"50\" r=\"6\" fill=\"currentColor\"><animateTransform attributeName=\"transform\" begin=\"0.2\" dur=\"1s\" repeatCount=\"indefinite\" type=\"translate\" values=\"0 10 ; 0 -10; 0 10\"\/><\/circle><circle cx=\"54\" cy=\"50\" r=\"6\" fill=\"currentColor\"><animateTransform attributeName=\"transform\" begin=\"0.3\" dur=\"1s\" repeatCount=\"indefinite\" type=\"translate\" values=\"0 5 ; 0 -5; 0 5\"\/><\/circle><\/svg><\/div><\/div>\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t\t\t<div class=\"elementor-element elementor-element-3c4589b elementor-widget elementor-widget-foxiz-heading\" data-id=\"3c4589b\" data-element_type=\"widget\" data-widget_type=\"foxiz-heading.default\">\n\t\t\t\t<div class=\"elementor-widget-container\">\n\t\t\t<div id=\"uid_3c4589b\" class=\"block-h heading-layout-19 light-scheme\"><div class=\"heading-inner\"><h2 class=\"heading-title\"><span>My Saves<\/span><\/h2><div class=\"heading-tagline h6\"><span class=\"heading-tagline-label\">Stay organized and never lose track of those must-read pieces of content!<\/span><\/div><\/div><\/div>\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t\t\t<div class=\"elementor-element elementor-element-42f2db4 elementor-widget elementor-widget-foxiz-list-personalize\" data-id=\"42f2db4\" data-element_type=\"widget\" data-widget_type=\"foxiz-list-personalize.default\">\n\t\t\t\t<div class=\"elementor-widget-container\">\n\t\t\t<div id=\"uid_42f2db4\" class=\"block-wrap block-list block-list-personalize is-ajax-block rb-columns rb-col-1 rb-tcol-1 rb-mcol-1 is-gap-20 hovering-fade bottom-border is-b-border-gray no-last-bb is-pagi-text ecat-text is-m-list res-feat-right meta-s-dot\"><div class=\"block-loader\"><svg class=\"svg-icon svg-loading\" aria-hidden=\"true\" role=\"img\" focusable=\"false\" version=\"1.1\" viewBox=\"0 0 66 100\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><circle cx=\"6\" cy=\"50\" r=\"6\" fill=\"currentColor\"><animateTransform attributeName=\"transform\" begin=\"0.1\" dur=\"1s\" repeatCount=\"indefinite\" type=\"translate\" values=\"0 15 ; 0 -15; 0 15\"\/><\/circle><circle cx=\"30\" cy=\"50\" r=\"6\" fill=\"currentColor\"><animateTransform attributeName=\"transform\" begin=\"0.2\" dur=\"1s\" repeatCount=\"indefinite\" type=\"translate\" values=\"0 10 ; 0 -10; 0 10\"\/><\/circle><circle cx=\"54\" cy=\"50\" r=\"6\" fill=\"currentColor\"><animateTransform attributeName=\"transform\" begin=\"0.3\" dur=\"1s\" repeatCount=\"indefinite\" type=\"translate\" values=\"0 5 ; 0 -5; 0 5\"\/><\/circle><\/svg><\/div><\/div>\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t\t\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t",
+        "protected": false
+    },
+    "excerpt": {
+        "rendered": "<p>Reading History See all the posts you&#8217;ve viewed within the last 48 hours! My Saves Stay organized and never lose track of those must-read pieces of content!<\/p>\n",
+        "protected": false
+    },
+    "author": 3,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "template": "",
+    "meta": {
+        "footnotes": ""
+    },
+    "class_list": [
+        "post-1863",
+        "page",
+        "type-page",
+        "status-publish"
+    ],
+    "_links": {
+        "self": [
+            {
+                "href": "https:\/\/foxiz.themeruby.com\/presspulse\/wp-json\/wp\/v2\/pages\/1863"
+            }
+        ],
+        "collection": [
+            {
+                "href": "https:\/\/foxiz.themeruby.com\/presspulse\/wp-json\/wp\/v2\/pages"
+            }
+        ],
+        "about": [
+            {
+                "href": "https:\/\/foxiz.themeruby.com\/presspulse\/wp-json\/wp\/v2\/types\/page"
+            }
+        ],
+        "author": [
+            {
+                "embeddable": true,
+                "href": "https:\/\/foxiz.themeruby.com\/presspulse\/wp-json\/wp\/v2\/users\/3"
+            }
+        ],
+        "replies": [
+            {
+                "embeddable": true,
+                "href": "https:\/\/foxiz.themeruby.com\/presspulse\/wp-json\/wp\/v2\/comments?post=1863"
+            }
+        ],
+        "version-history": [
+            {
+                "count": 0,
+                "href": "https:\/\/foxiz.themeruby.com\/presspulse\/wp-json\/wp\/v2\/pages\/1863\/revisions"
+            }
+        ],
+        "wp:attachment": [
+            {
+                "href": "https:\/\/foxiz.themeruby.com\/presspulse\/wp-json\/wp\/v2\/media?parent=1863"
+            }
+        ],
+        "curies": [
+            {
+                "name": "wp",
+                "href": "https:\/\/api.w.org\/{rel}",
+                "templated": true
+            }
+        ]
+    }
+}

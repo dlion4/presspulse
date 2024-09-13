@@ -5,6 +5,7 @@ from django.urls import include
 from django.urls import path
 
 urlpatterns = [
+    path("", include("website.main.urls")),
     path("", include("website.university.urls", namespace="university")),
     path("", include("website.medical.urls", namespace="medical")),
     # Media files

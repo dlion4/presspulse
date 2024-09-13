@@ -1,0 +1,31 @@
+{% load static %}
+
+<div class="p-wrap p-list p-list-2">
+  <div class="list-holder">
+    <div class="list-feat-holder">
+      <div class="feat-holder">
+        <div class="p-featured">
+          <a class="p-flink" href="#" title="{{ content.title }}">
+            <img src='{{ content.image }}' class="featured-img" alt="{{ content.title }}">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="p-content">
+      <div class="p-categories p-top">
+        <a class="p-category" href="#">Politics</a>
+      </div>
+      <h2 class="entry-title">
+        <a class="p-url" href="#" rel="bookmark">{{ content.title }}</a>
+      </h2>
+      <p class="entry-summary">{{ content.summary }}</p>
+      <div class="p-meta has-bookmark">
+        <div class="meta-inner is-meta">
+          <span class="meta-el meta-update">
+            <time class="updated">{{ content.date }}</time>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

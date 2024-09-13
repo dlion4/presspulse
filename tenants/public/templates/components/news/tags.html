@@ -1,0 +1,14 @@
+{% load static %}
+
+<ul class="qlinks-inner">
+  <li class="qlink qlinks-heading">
+    <div class="qlink-label">
+      <i class="rbi rbi-trending"></i>
+    </div>
+  </li>
+  {% for tag in tags %}
+    <li class="qlink h5">
+      <a href="{{tag.get_absolute_url}}">{{tag.name|title}}</a>
+    </li>
+  {% endfor %}
+</ul>

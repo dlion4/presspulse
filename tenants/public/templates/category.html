@@ -1,0 +1,290 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block componentCss %}
+  <link rel="stylesheet" href="{% static 'css/categories.css' %}">
+{% endblock componentCss %}
+
+{% block content %}
+
+  <div class="site-wrap">
+    <div class="blog-builder">
+      <div data-elementor-type="wp-post" data-elementor-id="2687" class="elementor elementor-2687">
+        <div class="elementor-element elementor-element-e04b01f e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="e04b01f" data-element_type="container">
+          <div class="e-con-inner">
+            <div class="elementor-element elementor-element-d70c23f elementor-widget elementor-widget-foxiz-archive-title" data-id="d70c23f" data-element_type="widget" data-widget_type="foxiz-archive-title.default">
+              <div class="elementor-widget-container">
+                <div class="archive-title e-archive-title b-follow">
+                  <h1>{{category.name|title}}</h1>
+                  <span class="rb-follow follow-trigger loaded" data-name="Business" data-cid="3">
+                    <i class="follow-icon rbi rbi-plus" data-title="Follow"></i>
+                    <i class="followed-icon rbi rbi-bookmark-fill" data-title="Unfollow"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="elementor-element elementor-element-3762261 elementor-widget__width-initial elementor-widget elementor-widget-foxiz-archive-description" data-id="3762261" data-element_type="widget" data-widget_type="foxiz-archive-description.default">
+              <div class="elementor-widget-container">
+                <div class="taxonomy-description e-taxonomy-description rb-text">
+                  <p>{{category.description|safe}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="elementor-element elementor-element-2c11e26 is-divider-0 elementor-widget elementor-widget-foxiz-quick-links" data-id="2c11e26" data-element_type="widget" data-widget_type="foxiz-quick-links.default">
+              <div class="elementor-widget-container">
+                <div id="uid_2c11e26" class="block-wrap block-qlinks qlayout-4 yes-wrap meta-s-dot">
+                  {% if complete_categories %}
+                    {% include "news/categories.html" %}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="elementor-element elementor-element-69f1270 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="69f1270" data-element_type="container">
+          <div class="e-con-inner">
+            <div class="elementor-element elementor-element-2806408 e-con-full e-flex e-con e-child" data-id="2806408" data-element_type="container">
+              <div class="elementor-element elementor-element-45d85b1 elementor-widget-tablet__width-inherit elementor-widget elementor-widget-foxiz-overlay-1" data-id="45d85b1" data-element_type="widget" data-widget_type="foxiz-overlay-1.default">
+                <div class="elementor-widget-container">
+                  <div id="uid_45d85b1" class="block-wrap block-overlay overlay-1 light-overlay-scheme p-gradient rb-columns rb-col-1 rb-tcol-1 rb-mcol-1 hovering-fade ecat-text ecat-size-big meta-s-dot">
+                    <div class="block-inner">
+                      <div class="p-wrap p-highlight p-overlay-1" data-pid="146">
+                        <div class="overlay-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="https://foxiz.themeruby.com/presspulse/the-future-of-remote-work-and-its-impact-on-business/" title="The Future of Remote Work and Its Impact on Business">
+                              <img fetchpriority="high" width="860" height="573" src="https://foxiz.themeruby.com/presspulse/wp-content/uploads/sites/2/2024/07/b1-860x573.jpg" class="featured-img wp-post-image" alt="" loading="eager" decoding="async">
+                            </a>
+                          </div>
+                          <div class="overlay-wrap">
+                            <div class="overlay-inner p-content overlay-text">
+                              <div class="p-categories p-top">
+                                <a class="p-category category-id-15" href="https://foxiz.themeruby.com/presspulse/tag/renewable-energy/">Renewable Energy</a>
+                              </div>
+                              <h2 class="entry-title">
+                                <a class="p-url" href="https://foxiz.themeruby.com/presspulse/the-future-of-remote-work-and-its-impact-on-business/" rel="bookmark">The Future of Remote Work and Its Impact on Business</a>
+                              </h2>
+                              <p class="entry-summary">Great design seamlessly integrates with the user experience, making the interaction smooth and intuitive. It's not just about aesthetics; it's about functionality and usability, ensuring users can achieve their goals…</p>
+                              <div class="p-meta has-bookmark">
+                                <div class="meta-inner is-meta">
+                                  <span class="meta-el meta-update">
+                                    <time class="updated" datetime="2024-07-23T03:59:13+00:00">July 23, 2024</time>
+                                  </span>
+                                </div>
+                                <span class="rb-bookmark bookmark-trigger loaded" data-pid="146">
+                                  <i class="rbi rbi-bookmark" aria-hidden="true" data-title="Save it"></i>
+                                  <i class="bookmarked-icon rbi rbi-bookmark-fill" aria-hidden="true" data-title="Undo Save"></i>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="elementor-element elementor-element-6c189b4 e-con-full e-flex e-con e-child" data-id="6c189b4" data-element_type="container">
+              <div class="elementor-element elementor-element-2db49d3 elementor-widget elementor-widget-foxiz-grid-flex-2" data-id="2db49d3" data-element_type="widget" data-widget_type="foxiz-grid-flex-2.default">
+                <div class="elementor-widget-container">
+                  <div id="uid_2db49d3" class="block-wrap block-grid block-grid-flex-2 rb-columns rb-col-1 rb-tcol-2 rb-mcol-1 is-gap-20 hovering-fade ecat-text ecat-size-big meta-s-dot">
+                    <div class="block-inner">
+                      <div class="p-wrap p-grid p-grid-2" data-pid="23">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="https://foxiz.themeruby.com/presspulse/top-strategies-for-small-business-growth-in-2024/" title="Top Strategies for Small Business Growth in 2024">
+                              <img width="420" height="280" src="https://foxiz.themeruby.com/presspulse/wp-content/uploads/sites/2/2024/07/b2-420x280.jpg" class="featured-img wp-post-image" alt="" loading="eager" decoding="async">
+                            </a>
+                          </div>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="https://foxiz.themeruby.com/presspulse/top-strategies-for-small-business-growth-in-2024/" rel="bookmark">
+                            <span class="live-tag"></span>Top Strategies for Small Business Growth in 2024</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:31:57+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger loaded" data-pid="23">
+                            <i class="rbi rbi-bookmark" aria-hidden="true" data-title="Save it"></i>
+                            <i class="bookmarked-icon rbi rbi-bookmark-fill" aria-hidden="true" data-title="Undo Save"></i>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="p-wrap p-grid p-grid-2" data-pid="14">
+                        <div class="feat-holder">
+                          <div class="p-featured">
+                            <a class="p-flink" href="https://foxiz.themeruby.com/presspulse/navigating-the-global-supply-chain-crisis/" title="Navigating the Global Supply Chain Crisis">
+                              <img width="420" height="280" src="https://foxiz.themeruby.com/presspulse/wp-content/uploads/sites/2/2024/07/b3-420x280.jpg" class="featured-img wp-post-image" alt="" loading="eager" decoding="async">
+                            </a>
+                          </div>
+                        </div>
+                        <h2 class="entry-title">
+                          <a class="p-url" href="https://foxiz.themeruby.com/presspulse/navigating-the-global-supply-chain-crisis/" rel="bookmark">Navigating the Global Supply Chain Crisis</a>
+                        </h2>
+                        <div class="p-meta has-bookmark">
+                          <div class="meta-inner is-meta">
+                            <span class="meta-el meta-update">
+                              <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                            </span>
+                          </div>
+                          <span class="rb-bookmark bookmark-trigger loaded" data-pid="14">
+                            <i class="rbi rbi-bookmark" aria-hidden="true" data-title="Save it"></i>
+                            <i class="bookmarked-icon rbi rbi-bookmark-fill" aria-hidden="true" data-title="Undo Save"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="elementor-element elementor-element-db22a73 e-con-full e-flex e-con e-child" data-id="db22a73" data-element_type="container">
+              <div class="elementor-element elementor-element-0360be0 elementor-widget elementor-widget-foxiz-cta" data-id="0360be0" data-element_type="widget" data-widget_type="foxiz-cta.default">
+                <div class="elementor-widget-container">
+                  <div class="cta-wrap cta-img-top">
+                    <div class="cta-content">
+                      <h3 class="cta-title">Impressive Mobile First Website Builder</h3>
+                      <p class="cta-description rb-text">Ready for Core Web Vitals, Support for Elementor, With 1000+ Options Allows to Create Any Imaginable Website. It is the Perfect Choice for Professional Publishers.</p>
+                      <div class="cta-buttons">
+                        <a href="//1.envato.market/MXYjYo" class="cta-btn cta-btn-1" target="_blank" rel="nofolow">Explore Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="elementor-element elementor-element-9fed998 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="9fed998" data-element_type="container">
+          <div class="e-con-inner">
+            <div class="elementor-element elementor-element-299a74b elementor-widget elementor-widget-foxiz-grid-flex-2" data-id="299a74b" data-element_type="widget" data-widget_type="foxiz-grid-flex-2.default">
+              <div class="elementor-widget-container">
+                <div id="uid_299a74b" class="block-wrap block-grid block-grid-flex-2 rb-columns rb-col-4 rb-tcol-4 is-gap-custom hovering-fade bottom-border is-b-border-gray no-last-bb is-pagi-text ecat-text is-m-list meta-s-dot">
+                  <div class="block-inner">
+                    <div class="p-wrap p-grid p-grid-2" data-pid="62">
+                      <div class="feat-holder">
+                        <div class="p-featured">
+                          <a class="p-flink" href="https://foxiz.themeruby.com/presspulse/how-to-build-a-sustainable-business-model/" title="How to Build a Sustainable Business Model">
+                            <img loading="lazy" width="420" height="280" src="https://foxiz.themeruby.com/presspulse/wp-content/uploads/sites/2/2024/07/b4-420x280.jpg" class="featured-img wp-post-image" alt="" decoding="async">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="p-categories p-top">
+                        <a class="p-category category-id-10" href="https://foxiz.themeruby.com/presspulse/tag/climate-change/">Climate Change</a>
+                        <a class="p-category category-id-16" href="https://foxiz.themeruby.com/presspulse/tag/featured/">Featured</a>
+                      </div>
+                      <h2 class="entry-title">
+                        <a class="p-url" href="https://foxiz.themeruby.com/presspulse/how-to-build-a-sustainable-business-model/" rel="bookmark">How to Build a Sustainable Business Model</a>
+                      </h2>
+                      <div class="p-meta has-bookmark">
+                        <div class="meta-inner is-meta">
+                          <span class="meta-el meta-update">
+                            <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                          </span>
+                        </div>
+                        <span class="rb-bookmark bookmark-trigger loaded" data-pid="62">
+                          <i class="rbi rbi-bookmark" aria-hidden="true" data-title="Save it"></i>
+                          <i class="bookmarked-icon rbi rbi-bookmark-fill" aria-hidden="true" data-title="Undo Save"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="p-wrap p-grid p-grid-2" data-pid="126">
+                      <div class="feat-holder">
+                        <div class="p-featured">
+                          <a class="p-flink" href="https://foxiz.themeruby.com/presspulse/the-role-of-artificial-intelligence-in-modern-business/" title="The Role of Artificial Intelligence in Modern Business">
+                            <img loading="lazy" width="420" height="280" src="https://foxiz.themeruby.com/presspulse/wp-content/uploads/sites/2/2024/07/b5-420x280.jpg" class="featured-img wp-post-image" alt="" decoding="async">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="p-categories p-top">
+                        <a class="p-category category-id-16" href="https://foxiz.themeruby.com/presspulse/tag/featured/">Featured</a>
+                      </div>
+                      <h2 class="entry-title">
+                        <a class="p-url" href="https://foxiz.themeruby.com/presspulse/the-role-of-artificial-intelligence-in-modern-business/" rel="bookmark">The Role of Artificial Intelligence in Modern Business</a>
+                      </h2>
+                      <div class="p-meta has-bookmark">
+                        <div class="meta-inner is-meta">
+                          <span class="meta-el meta-update">
+                            <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                          </span>
+                        </div>
+                        <span class="rb-bookmark bookmark-trigger loaded" data-pid="126">
+                          <i class="rbi rbi-bookmark" aria-hidden="true" data-title="Save it"></i>
+                          <i class="bookmarked-icon rbi rbi-bookmark-fill" aria-hidden="true" data-title="Undo Save"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="p-wrap p-grid p-grid-2" data-pid="113">
+                      <div class="feat-holder">
+                        <div class="p-featured">
+                          <a class="p-flink" href="https://foxiz.themeruby.com/presspulse/understanding-the-cryptocurrency-market-for-business-owners/" title="Understanding the Cryptocurrency Market for Business Owners">
+                            <img loading="lazy" width="420" height="280" src="https://foxiz.themeruby.com/presspulse/wp-content/uploads/sites/2/2024/07/b6-420x280.jpg" class="featured-img wp-post-image" alt="" decoding="async">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="p-categories p-top">
+                        <a class="p-category category-id-13" href="https://foxiz.themeruby.com/presspulse/tag/education/">Education</a>
+                        <a class="p-category category-id-9" href="https://foxiz.themeruby.com/presspulse/tag/opinion/">Opinion</a>
+                      </div>
+                      <h2 class="entry-title">
+                        <a class="p-url" href="https://foxiz.themeruby.com/presspulse/understanding-the-cryptocurrency-market-for-business-owners/" rel="bookmark">Understanding the Cryptocurrency Market for Business Owners</a>
+                      </h2>
+                      <div class="p-meta has-bookmark">
+                        <div class="meta-inner is-meta">
+                          <span class="meta-el meta-update">
+                            <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                          </span>
+                        </div>
+                        <span class="rb-bookmark bookmark-trigger loaded" data-pid="113">
+                          <i class="rbi rbi-bookmark" aria-hidden="true" data-title="Save it"></i>
+                          <i class="bookmarked-icon rbi rbi-bookmark-fill" aria-hidden="true" data-title="Undo Save"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="p-wrap p-grid p-grid-2" data-pid="46">
+                      <div class="feat-holder">
+                        <div class="p-featured">
+                          <a class="p-flink" href="https://foxiz.themeruby.com/presspulse/exploring-the-benefits-of-business-incubators-and-accelerators/" title="Exploring the Benefits of Business Incubators and Accelerators">
+                            <img loading="lazy" width="420" height="280" src="https://foxiz.themeruby.com/presspulse/wp-content/uploads/sites/2/2024/07/b7-420x280.jpg" class="featured-img wp-post-image" alt="" decoding="async">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="p-categories p-top">
+                        <a class="p-category category-id-13" href="https://foxiz.themeruby.com/presspulse/tag/education/">Education</a>
+                        <a class="p-category category-id-14" href="https://foxiz.themeruby.com/presspulse/tag/markets/">Markets</a>
+                      </div>
+                      <h2 class="entry-title">
+                        <a class="p-url" href="https://foxiz.themeruby.com/presspulse/exploring-the-benefits-of-business-incubators-and-accelerators/" rel="bookmark">Exploring the Benefits of Business Incubators and Accelerators</a>
+                      </h2>
+                      <div class="p-meta has-bookmark">
+                        <div class="meta-inner is-meta">
+                          <span class="meta-el meta-update">
+                            <time class="updated" datetime="2024-07-22T12:30:29+00:00">July 22, 2024</time>
+                          </span>
+                        </div>
+                        <span class="rb-bookmark bookmark-trigger loaded" data-pid="46">
+                          <i class="rbi rbi-bookmark" aria-hidden="true" data-title="Save it"></i>
+                          <i class="bookmarked-icon rbi rbi-bookmark-fill" aria-hidden="true" data-title="Undo Save"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pagination-wrap pagination-loadmore">
+                    <a href="#" class="loadmore-trigger">
+                      <span>Show More</span>
+                      <i class="rb-loader" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

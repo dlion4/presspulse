@@ -1,0 +1,12 @@
+<ul class="qlinks-inner">
+  <li class="qlink qlinks-heading">
+    <div class="qlink-label">
+      <i class="rbi rbi-share"></i>
+    </div>
+  </li>
+  {% for cat in complete_categories %}
+    <li class="qlink h5">
+      <a href="{{cat.get_absolute_url}}">{{cat.name|title}}</a>
+    </li>
+  {% endfor %}
+</ul>
